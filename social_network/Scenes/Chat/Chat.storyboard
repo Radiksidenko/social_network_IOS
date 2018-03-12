@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ife-Xk-vea">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="1X2-58-Ilg">
+            <objects>
+                <navigationController id="ife-Xk-vea" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" image="chat" selectedImage="chat-active" id="H5g-1c-UR3"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="B9Z-1a-Xpu">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="IEp-Rx-nU4" kind="relationship" relationship="rootViewController" id="NfX-2f-May"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lmY-rc-5Ui" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-945" y="222"/>
+        </scene>
+        <!--Chat-->
+        <scene sceneID="VRx-eT-QUZ">
+            <objects>
+                <viewController id="IEp-Rx-nU4" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Xgl-kp-ggb">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="Tp1-Xa-SvN"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Chat" id="7vi-kI-x6U"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mMQ-fq-dPC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-311" y="223"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="chat" width="25" height="25"/>
+        <image name="chat-active" width="25" height="25"/>
+    </resources>
+</document>

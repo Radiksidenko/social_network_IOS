@@ -8,22 +8,30 @@
 
 /* Begin PBXBuildFile section */
 		7C150D472056D5CC00DF0E62 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C150D462056D5CC00DF0E62 /* AppDelegate.swift */; };
-		7C150D492056D5CC00DF0E62 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C150D482056D5CC00DF0E62 /* FirstViewController.swift */; };
-		7C150D4B2056D5CC00DF0E62 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C150D4A2056D5CC00DF0E62 /* SecondViewController.swift */; };
 		7C150D4E2056D5CC00DF0E62 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C150D4C2056D5CC00DF0E62 /* Main.storyboard */; };
 		7C150D502056D5CC00DF0E62 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C150D4F2056D5CC00DF0E62 /* Assets.xcassets */; };
 		7C150D532056D5CC00DF0E62 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C150D512056D5CC00DF0E62 /* LaunchScreen.storyboard */; };
+		7C150D612056DA4400DF0E62 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C150D602056DA4400DF0E62 /* Profile.storyboard */; };
+		7C150D632056E06200DF0E62 /* Chat.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C150D622056E06200DF0E62 /* Chat.storyboard */; };
+		7C150D652056E71200DF0E62 /* Notifications.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C150D642056E71200DF0E62 /* Notifications.storyboard */; };
+		7C150D692056E87400DF0E62 /* NotificationsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C150D682056E87400DF0E62 /* NotificationsTableViewCell.swift */; };
+		7C150D6B2056E8AC00DF0E62 /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C150D6A2056E8AC00DF0E62 /* NotificationsViewController.swift */; };
+		7C150D6D2056F09C00DF0E62 /* Notifications.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C150D6C2056F09C00DF0E62 /* Notifications.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		7C150D432056D5CC00DF0E62 /* social_network.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = social_network.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C150D462056D5CC00DF0E62 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		7C150D482056D5CC00DF0E62 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		7C150D4A2056D5CC00DF0E62 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		7C150D4D2056D5CC00DF0E62 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7C150D4F2056D5CC00DF0E62 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7C150D522056D5CC00DF0E62 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7C150D542056D5CC00DF0E62 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7C150D602056DA4400DF0E62 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
+		7C150D622056E06200DF0E62 /* Chat.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Chat.storyboard; sourceTree = "<group>"; };
+		7C150D642056E71200DF0E62 /* Notifications.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Notifications.storyboard; sourceTree = "<group>"; };
+		7C150D682056E87400DF0E62 /* NotificationsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsTableViewCell.swift; sourceTree = "<group>"; };
+		7C150D6A2056E8AC00DF0E62 /* NotificationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
+		7C150D6C2056F09C00DF0E62 /* Notifications.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Notifications.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +64,75 @@
 		7C150D452056D5CC00DF0E62 /* social_network */ = {
 			isa = PBXGroup;
 			children = (
+				7C150D5A2056D98200DF0E62 /* Scenes */,
 				7C150D462056D5CC00DF0E62 /* AppDelegate.swift */,
-				7C150D482056D5CC00DF0E62 /* FirstViewController.swift */,
-				7C150D4A2056D5CC00DF0E62 /* SecondViewController.swift */,
 				7C150D4C2056D5CC00DF0E62 /* Main.storyboard */,
 				7C150D4F2056D5CC00DF0E62 /* Assets.xcassets */,
 				7C150D512056D5CC00DF0E62 /* LaunchScreen.storyboard */,
 				7C150D542056D5CC00DF0E62 /* Info.plist */,
 			);
 			path = social_network;
+			sourceTree = "<group>";
+		};
+		7C150D5A2056D98200DF0E62 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				7C150D5F2056D9CD00DF0E62 /* Notifications */,
+				7C150D5E2056D9B900DF0E62 /* Chat */,
+				7C150D5D2056D9B000DF0E62 /* Feed */,
+				7C150D5C2056D9A800DF0E62 /* Camera */,
+				7C150D5B2056D99700DF0E62 /* Profile */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		7C150D5B2056D99700DF0E62 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				7C150D602056DA4400DF0E62 /* Profile.storyboard */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		7C150D5C2056D9A800DF0E62 /* Camera */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Camera;
+			sourceTree = "<group>";
+		};
+		7C150D5D2056D9B000DF0E62 /* Feed */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Feed;
+			sourceTree = "<group>";
+		};
+		7C150D5E2056D9B900DF0E62 /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				7C150D622056E06200DF0E62 /* Chat.storyboard */,
+			);
+			path = Chat;
+			sourceTree = "<group>";
+		};
+		7C150D5F2056D9CD00DF0E62 /* Notifications */ = {
+			isa = PBXGroup;
+			children = (
+				7C150D662056E74600DF0E62 /* cell */,
+				7C150D642056E71200DF0E62 /* Notifications.storyboard */,
+				7C150D6A2056E8AC00DF0E62 /* NotificationsViewController.swift */,
+			);
+			path = Notifications;
+			sourceTree = "<group>";
+		};
+		7C150D662056E74600DF0E62 /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				7C150D682056E87400DF0E62 /* NotificationsTableViewCell.swift */,
+				7C150D6C2056F09C00DF0E62 /* Notifications.xib */,
+			);
+			path = cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -99,7 +167,7 @@
 				TargetAttributes = {
 					7C150D422056D5CC00DF0E62 = {
 						CreatedOnToolsVersion = 9.2;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
@@ -128,7 +196,11 @@
 			files = (
 				7C150D532056D5CC00DF0E62 /* LaunchScreen.storyboard in Resources */,
 				7C150D502056D5CC00DF0E62 /* Assets.xcassets in Resources */,
+				7C150D612056DA4400DF0E62 /* Profile.storyboard in Resources */,
+				7C150D632056E06200DF0E62 /* Chat.storyboard in Resources */,
+				7C150D6D2056F09C00DF0E62 /* Notifications.xib in Resources */,
 				7C150D4E2056D5CC00DF0E62 /* Main.storyboard in Resources */,
+				7C150D652056E71200DF0E62 /* Notifications.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -139,9 +211,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7C150D4B2056D5CC00DF0E62 /* SecondViewController.swift in Sources */,
+				7C150D6B2056E8AC00DF0E62 /* NotificationsViewController.swift in Sources */,
+				7C150D692056E87400DF0E62 /* NotificationsTableViewCell.swift in Sources */,
 				7C150D472056D5CC00DF0E62 /* AppDelegate.swift in Sources */,
-				7C150D492056D5CC00DF0E62 /* FirstViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -278,11 +350,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = social_network/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "ras.social-network";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -292,11 +366,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = social_network/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "ras.social-network";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
