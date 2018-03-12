@@ -12,5 +12,7 @@ class NotificationsTableViewCell: UITableViewCell {
     @IBOutlet weak var name: UILabel!
     
     @IBOutlet weak var avatar: UIImageView!
-    @IBOutlet weak var subName: UILabel!
+    @IBOutlet weak var action: UILabel!
+    
+    @IBOutlet weak var time: UILabel!
 }
