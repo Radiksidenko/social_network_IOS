@@ -57,10 +57,10 @@ class NotificationsViewController: UIViewController,UITableViewDelegate,UITableV
         
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "NotificationsTableViewCell", for: indexPath) as? NotificationsTableViewCell else {fatalError()}
-        
+//        cell.backgroundColor = hexStringToUIColor(hex: "BBBBBB")
         if(Int(indexPath[1]) % 2 == 0){
             cell.avatar.image = UIImage(named: "avatar")
-            cell.name.text = "Rick"
+            cell.name.text = "@Rick"
             cell.action.text = "42"
             cell.time.text = "1337 seconds ago"
         }else{
@@ -68,7 +68,7 @@ class NotificationsViewController: UIViewController,UITableViewDelegate,UITableV
             //            cell.name.lineBreakMode = .byWordWrapping
             //            cell.name.numberOfLines = 0
             
-            cell.name.text = "Test"
+            cell.name.text = "@Test"
             
             cell.action.text = "1337"
             cell.time.text = "3h ago"
