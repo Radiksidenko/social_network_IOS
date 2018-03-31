@@ -23,9 +23,12 @@ class ChatController: UIViewController {
             !message.isEmpty
             else{return}
         let data = [
-            "user": userID,
+//            "user": userID,
             "message": message
         ]
+        debugPrint("////////////////")
+        debugPrint("/////",data,"///////")
+        debugPrint("////////////////")
         let messageRef = ref.child("user/\(userID)/").childByAutoId()
         messageRef.setValue(data){( error, databaseRef) in
             if let error = error {

@@ -11,9 +11,7 @@ import FirebaseAuth
 
 class AuthViewController: UIViewController{
     
-    func validation() {
-        
-    }
+
     @IBOutlet weak var username: UITextField!
     @IBOutlet weak var password: UITextField!
     
