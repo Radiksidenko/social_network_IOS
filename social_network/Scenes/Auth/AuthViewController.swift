@@ -11,6 +11,9 @@ import FirebaseAuth
 
 class AuthViewController: UIViewController{
     
+    func validation() {
+        
+    }
     @IBOutlet weak var username: UITextField!
     @IBOutlet weak var password: UITextField!
     
@@ -33,6 +36,7 @@ class AuthViewController: UIViewController{
         guard let appDeligate = UIApplication.shared.delegate as? AppDelegate else {return}
         guard let main = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateInitialViewController() else {return}
         appDeligate.window?.rootViewController = main
+        
     }
 }
 

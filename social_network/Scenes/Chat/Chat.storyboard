@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ife-Xk-vea">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -17,7 +17,7 @@
                     <tabBarItem key="tabBarItem" title="" image="chat" selectedImage="chat-active" id="H5g-1c-UR3"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="B9Z-1a-Xpu">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -31,18 +31,71 @@
         <!--Chat-->
         <scene sceneID="VRx-eT-QUZ">
             <objects>
-                <viewController id="IEp-Rx-nU4" sceneMemberID="viewController">
+                <viewController id="IEp-Rx-nU4" customClass="ChatController" customModule="social_network" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Xgl-kp-ggb">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="fJH-Lz-gXq">
+                                <rect key="frame" x="16" y="64" width="288" height="377"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZMJ-x5-Pcf">
+                                <rect key="frame" x="0.0" y="475" width="320" height="44"/>
+                                <items>
+                                    <barButtonItem style="plain" id="UlG-Qa-9hZ">
+                                        <textField key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" id="LEi-RR-p4D">
+                                            <rect key="frame" x="16" y="7" width="223" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <nil key="textColor"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </textField>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" id="s7P-gj-QMa">
+                                        <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="KtY-KX-Md0">
+                                            <rect key="frame" x="239" y="7" width="65" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal" title="send"/>
+                                            <connections>
+                                                <action selector="sendMessage:" destination="IEp-Rx-nU4" eventType="touchUpInside" id="gma-zb-h57"/>
+                                            </connections>
+                                        </button>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="ZMJ-x5-Pcf" firstAttribute="trailing" secondItem="Tp1-Xa-SvN" secondAttribute="trailing" id="Pjv-rQ-iXb"/>
+                            <constraint firstItem="ZMJ-x5-Pcf" firstAttribute="leading" secondItem="Tp1-Xa-SvN" secondAttribute="leading" id="SbL-uA-F8Q"/>
+                            <constraint firstItem="ZMJ-x5-Pcf" firstAttribute="bottom" secondItem="Tp1-Xa-SvN" secondAttribute="bottom" id="sh2-8h-e1H"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Tp1-Xa-SvN"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Chat" id="7vi-kI-x6U"/>
+                    <navigationItem key="navigationItem" title="Chat" id="7vi-kI-x6U">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="lgP-rp-8ab">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="UQc-Ba-DEU">
+                                <rect key="frame" x="260" y="7" width="44" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="logout"/>
+                                <connections>
+                                    <action selector="logOut:" destination="IEp-Rx-nU4" eventType="touchUpInside" id="T6k-Ex-H4U"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="messageBoard" destination="fJH-Lz-gXq" id="8Rc-Xb-0yr"/>
+                        <outlet property="textMessage" destination="LEi-RR-p4D" id="6sh-gx-tCl"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mMQ-fq-dPC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-311" y="223"/>
+            <point key="canvasLocation" x="-311.25" y="221.83098591549296"/>
         </scene>
     </scenes>
     <resources>
