@@ -21,6 +21,8 @@
 		7C1EF3E12061738B003FF4CD /* Camera.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C1EF3E02061738B003FF4CD /* Camera.storyboard */; };
 		7C1EF3E320617972003FF4CD /* Feed.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C1EF3E220617972003FF4CD /* Feed.storyboard */; };
 		7C449258205D132C00A6CBC3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7C449257205D132C00A6CBC3 /* GoogleService-Info.plist */; };
+		7C6E16DC206F732E0033882E /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C6E16DB206F732E0033882E /* Auth.storyboard */; };
+		7C6E16DE206F73510033882E /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6E16DD206F73510033882E /* AuthViewController.swift */; };
 		861BE651E221FBA28B389CCE /* Pods_social_network.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A09F5DB8D13EB8F6C1BA14D4 /* Pods_social_network.framework */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +43,8 @@
 		7C1EF3E02061738B003FF4CD /* Camera.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Camera.storyboard; sourceTree = "<group>"; };
 		7C1EF3E220617972003FF4CD /* Feed.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Feed.storyboard; sourceTree = "<group>"; };
 		7C449257205D132C00A6CBC3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		7C6E16DB206F732E0033882E /* Auth.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
+		7C6E16DD206F73510033882E /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		A09F5DB8D13EB8F6C1BA14D4 /* Pods_social_network.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_social_network.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF0DDA54E38A72922E59B029 /* Pods-social_network.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-social_network.debug.xcconfig"; path = "Pods/Target Support Files/Pods-social_network/Pods-social_network.debug.xcconfig"; sourceTree = "<group>"; };
 		DEE9B74E822BE1009E22D3F2 /* Pods-social_network.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-social_network.release.xcconfig"; path = "Pods/Target Support Files/Pods-social_network/Pods-social_network.release.xcconfig"; sourceTree = "<group>"; };
@@ -102,6 +106,7 @@
 		7C150D5A2056D98200DF0E62 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				7C6E16D8206F6F160033882E /* Auth */,
 				7C150D5F2056D9CD00DF0E62 /* Notifications */,
 				7C150D5E2056D9B900DF0E62 /* Chat */,
 				7C150D5D2056D9B000DF0E62 /* Feed */,
@@ -161,6 +166,15 @@
 				7C150D6C2056F09C00DF0E62 /* Notifications.xib */,
 			);
 			path = cell;
+			sourceTree = "<group>";
+		};
+		7C6E16D8206F6F160033882E /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				7C6E16DB206F732E0033882E /* Auth.storyboard */,
+				7C6E16DD206F73510033882E /* AuthViewController.swift */,
+			);
+			path = Auth;
 			sourceTree = "<group>";
 		};
 		CE8E602A81916E345C5E402A /* Frameworks */ = {
@@ -242,6 +256,7 @@
 				7C150D632056E06200DF0E62 /* Chat.storyboard in Resources */,
 				7C150D6D2056F09C00DF0E62 /* Notifications.xib in Resources */,
 				7C150D4E2056D5CC00DF0E62 /* Main.storyboard in Resources */,
+				7C6E16DC206F732E0033882E /* Auth.storyboard in Resources */,
 				7C150D652056E71200DF0E62 /* Notifications.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -315,6 +330,7 @@
 			files = (
 				7C150D6B2056E8AC00DF0E62 /* NotificationsViewController.swift in Sources */,
 				7C1EF3DF2061722B003FF4CD /* ChatController.swift in Sources */,
+				7C6E16DE206F73510033882E /* AuthViewController.swift in Sources */,
 				7C150D692056E87400DF0E62 /* NotificationsTableViewCell.swift in Sources */,
 				7C150D472056D5CC00DF0E62 /* AppDelegate.swift in Sources */,
 			);
