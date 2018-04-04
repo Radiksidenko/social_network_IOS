@@ -23,6 +23,11 @@
 		7C449258205D132C00A6CBC3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7C449257205D132C00A6CBC3 /* GoogleService-Info.plist */; };
 		7C6E16DC206F732E0033882E /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C6E16DB206F732E0033882E /* Auth.storyboard */; };
 		7C6E16DE206F73510033882E /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6E16DD206F73510033882E /* AuthViewController.swift */; };
+		7CB50AF02074AFA2007759FE /* ConversationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB50AEF2074AFA2007759FE /* ConversationViewController.swift */; };
+		7CB50AF32074B160007759FE /* ConversationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7CB50AF22074B160007759FE /* ConversationCell.xib */; };
+		7CB50AF52074B16D007759FE /* ConversationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB50AF42074B16D007759FE /* ConversationCell.swift */; };
+		7CB50AF72074D5D2007759FE /* SingUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CB50AF62074D5D2007759FE /* SingUp.storyboard */; };
+		7CB50AF92074DCBE007759FE /* Forgot.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CB50AF82074DCBE007759FE /* Forgot.storyboard */; };
 		861BE651E221FBA28B389CCE /* Pods_social_network.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A09F5DB8D13EB8F6C1BA14D4 /* Pods_social_network.framework */; };
 /* End PBXBuildFile section */
 
@@ -45,6 +50,11 @@
 		7C449257205D132C00A6CBC3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7C6E16DB206F732E0033882E /* Auth.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
 		7C6E16DD206F73510033882E /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
+		7CB50AEF2074AFA2007759FE /* ConversationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationViewController.swift; sourceTree = "<group>"; };
+		7CB50AF22074B160007759FE /* ConversationCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConversationCell.xib; sourceTree = "<group>"; };
+		7CB50AF42074B16D007759FE /* ConversationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationCell.swift; sourceTree = "<group>"; };
+		7CB50AF62074D5D2007759FE /* SingUp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SingUp.storyboard; sourceTree = "<group>"; };
+		7CB50AF82074DCBE007759FE /* Forgot.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Forgot.storyboard; sourceTree = "<group>"; };
 		A09F5DB8D13EB8F6C1BA14D4 /* Pods_social_network.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_social_network.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF0DDA54E38A72922E59B029 /* Pods-social_network.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-social_network.debug.xcconfig"; path = "Pods/Target Support Files/Pods-social_network/Pods-social_network.debug.xcconfig"; sourceTree = "<group>"; };
 		DEE9B74E822BE1009E22D3F2 /* Pods-social_network.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-social_network.release.xcconfig"; path = "Pods/Target Support Files/Pods-social_network/Pods-social_network.release.xcconfig"; sourceTree = "<group>"; };
@@ -143,6 +153,7 @@
 		7C150D5E2056D9B900DF0E62 /* Chat */ = {
 			isa = PBXGroup;
 			children = (
+				7CB50AEE2074AF17007759FE /* conversation */,
 				7C150D622056E06200DF0E62 /* Chat.storyboard */,
 				7C1EF3DE2061722B003FF4CD /* ChatController.swift */,
 			);
@@ -172,9 +183,29 @@
 			isa = PBXGroup;
 			children = (
 				7C6E16DB206F732E0033882E /* Auth.storyboard */,
+				7CB50AF82074DCBE007759FE /* Forgot.storyboard */,
+				7CB50AF62074D5D2007759FE /* SingUp.storyboard */,
 				7C6E16DD206F73510033882E /* AuthViewController.swift */,
 			);
 			path = Auth;
+			sourceTree = "<group>";
+		};
+		7CB50AEE2074AF17007759FE /* conversation */ = {
+			isa = PBXGroup;
+			children = (
+				7CB50AF12074B139007759FE /* cell */,
+				7CB50AEF2074AFA2007759FE /* ConversationViewController.swift */,
+			);
+			path = conversation;
+			sourceTree = "<group>";
+		};
+		7CB50AF12074B139007759FE /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				7CB50AF22074B160007759FE /* ConversationCell.xib */,
+				7CB50AF42074B16D007759FE /* ConversationCell.swift */,
+			);
+			path = cell;
 			sourceTree = "<group>";
 		};
 		CE8E602A81916E345C5E402A /* Frameworks */ = {
@@ -247,11 +278,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7CB50AF32074B160007759FE /* ConversationCell.xib in Resources */,
 				7C1EF3E320617972003FF4CD /* Feed.storyboard in Resources */,
 				7C150D532056D5CC00DF0E62 /* LaunchScreen.storyboard in Resources */,
 				7C449258205D132C00A6CBC3 /* GoogleService-Info.plist in Resources */,
 				7C1EF3E12061738B003FF4CD /* Camera.storyboard in Resources */,
+				7CB50AF92074DCBE007759FE /* Forgot.storyboard in Resources */,
 				7C150D502056D5CC00DF0E62 /* Assets.xcassets in Resources */,
+				7CB50AF72074D5D2007759FE /* SingUp.storyboard in Resources */,
 				7C150D612056DA4400DF0E62 /* Profile.storyboard in Resources */,
 				7C150D632056E06200DF0E62 /* Chat.storyboard in Resources */,
 				7C150D6D2056F09C00DF0E62 /* Notifications.xib in Resources */,
@@ -329,10 +363,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				7C150D6B2056E8AC00DF0E62 /* NotificationsViewController.swift in Sources */,
+				7CB50AF02074AFA2007759FE /* ConversationViewController.swift in Sources */,
 				7C1EF3DF2061722B003FF4CD /* ChatController.swift in Sources */,
 				7C6E16DE206F73510033882E /* AuthViewController.swift in Sources */,
 				7C150D692056E87400DF0E62 /* NotificationsTableViewCell.swift in Sources */,
 				7C150D472056D5CC00DF0E62 /* AppDelegate.swift in Sources */,
+				7CB50AF52074B16D007759FE /* ConversationCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

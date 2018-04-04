@@ -58,10 +58,5 @@ class ChatController: UIViewController {
     }
     
     
-    @IBAction func logOut(_ sender: Any) {
-        try! auth.signOut()
-        guard let appDeligate = UIApplication.shared.delegate as? AppDelegate else {return}
-        guard let main = UIStoryboard(name: "Auth", bundle: Bundle.main).instantiateInitialViewController() else {return}
-        appDeligate.window?.rootViewController = main
-    }
+    
 }

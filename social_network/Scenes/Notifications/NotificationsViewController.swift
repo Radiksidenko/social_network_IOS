@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import FirebaseAuth
 
 class NotificationsViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
     @IBOutlet weak var tableView: UITableView!
@@ -82,6 +82,18 @@ class NotificationsViewController: UIViewController,UITableViewDelegate,UITableV
     }
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         return 50
+    }
+    
+    
+    
+    
+    @IBAction func logOut(_ sender: Any) {
+        debugPrint("№№№№№№№№№№№№№")
+        var auth = Auth.auth()
+        try! auth.signOut()
+        guard let appDeligate = UIApplication.shared.delegate as? AppDelegate else {return}
+        guard let main = UIStoryboard(name: "Auth", bundle: Bundle.main).instantiateInitialViewController() else {return}
+        appDeligate.window?.rootViewController = main
     }
     
 }

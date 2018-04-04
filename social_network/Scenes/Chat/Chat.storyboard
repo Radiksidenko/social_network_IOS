@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ife-Xk-vea">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ife-Xk-vea">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -21,12 +21,12 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="IEp-Rx-nU4" kind="relationship" relationship="rootViewController" id="NfX-2f-May"/>
+                        <segue destination="IEp-Rx-nU4" kind="relationship" relationship="rootViewController" id="eA6-R0-dwk"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lmY-rc-5Ui" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-945" y="222"/>
+            <point key="canvasLocation" x="-1821" y="-126"/>
         </scene>
         <!--Chat-->
         <scene sceneID="VRx-eT-QUZ">
@@ -76,18 +76,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Tp1-Xa-SvN"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Chat" id="7vi-kI-x6U">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="lgP-rp-8ab">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="UQc-Ba-DEU">
-                                <rect key="frame" x="260" y="7" width="44" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="logout"/>
-                                <connections>
-                                    <action selector="logOut:" destination="IEp-Rx-nU4" eventType="touchUpInside" id="T6k-Ex-H4U"/>
-                                </connections>
-                            </button>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Chat" id="7vi-kI-x6U"/>
                     <connections>
                         <outlet property="messageBoard" destination="fJH-Lz-gXq" id="8Rc-Xb-0yr"/>
                         <outlet property="textMessage" destination="LEi-RR-p4D" id="6sh-gx-tCl"/>
@@ -95,7 +84,49 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mMQ-fq-dPC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-311.25" y="221.83098591549296"/>
+            <point key="canvasLocation" x="-617" y="-127"/>
+        </scene>
+        <!--Conversation View Controller-->
+        <scene sceneID="QVx-B4-FIa">
+            <objects>
+                <viewController id="jtV-pR-kg4" customClass="ConversationViewController" customModule="social_network" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Xde-VC-paO">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="HVY-TS-6HG">
+                                <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Gd6-yd-FJP">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                                <connections>
+                                    <outlet property="dataSource" destination="jtV-pR-kg4" id="gZ0-G6-JPg"/>
+                                    <outlet property="delegate" destination="jtV-pR-kg4" id="eJu-p8-ex8"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="AuQ-9o-Wwe" firstAttribute="bottom" secondItem="HVY-TS-6HG" secondAttribute="bottom" id="ASG-KR-WXo"/>
+                            <constraint firstItem="AuQ-9o-Wwe" firstAttribute="trailing" secondItem="HVY-TS-6HG" secondAttribute="trailing" id="JzX-6o-ug6"/>
+                            <constraint firstItem="HVY-TS-6HG" firstAttribute="leading" secondItem="AuQ-9o-Wwe" secondAttribute="leading" id="q0u-cI-L95"/>
+                            <constraint firstItem="HVY-TS-6HG" firstAttribute="top" secondItem="AuQ-9o-Wwe" secondAttribute="top" id="tcP-k2-vX0"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="AuQ-9o-Wwe"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="SZg-uN-Qk4"/>
+                    <connections>
+                        <outlet property="collectionView" destination="HVY-TS-6HG" id="vjN-4f-2SJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3FT-Ee-OOU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="636" y="-59"/>
         </scene>
     </scenes>
     <resources>
