@@ -39,6 +39,9 @@
                                         <integer key="value" value="15"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="ResetPassword:" destination="wBu-kK-6Px" eventType="touchUpInside" id="wVI-H4-o6D"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bS6-rn-Qju">
                                 <rect key="frame" x="143" y="436" width="34" height="30"/>
@@ -46,6 +49,9 @@
                                 <state key="normal" title="Back">
                                     <color key="titleColor" red="0.047058823530000002" green="0.83921568629999999" blue="0.98431372549999996" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="back:" destination="wBu-kK-6Px" eventType="touchUpInside" id="05w-z0-0hP"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="gNt-r9-jF3">
                                 <rect key="frame" x="16" y="305" width="288" height="30"/>
@@ -65,6 +71,10 @@
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="IZy-Or-il1"/>
                     </view>
+                    <connections>
+                        <outlet property="buttonLogin" destination="jvR-65-oCt" id="NMB-E8-V0R"/>
+                        <outlet property="username" destination="gNt-r9-jF3" id="Ggg-Wm-ZOH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="czm-zH-glY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

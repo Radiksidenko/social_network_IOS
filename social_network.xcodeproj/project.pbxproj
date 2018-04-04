@@ -23,6 +23,7 @@
 		7C449258205D132C00A6CBC3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7C449257205D132C00A6CBC3 /* GoogleService-Info.plist */; };
 		7C6E16DC206F732E0033882E /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C6E16DB206F732E0033882E /* Auth.storyboard */; };
 		7C6E16DE206F73510033882E /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6E16DD206F73510033882E /* AuthViewController.swift */; };
+		7C7069392074F2FE00B1C50E /* ForgotOK.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C7069382074F2FE00B1C50E /* ForgotOK.storyboard */; };
 		7CB50AF02074AFA2007759FE /* ConversationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB50AEF2074AFA2007759FE /* ConversationViewController.swift */; };
 		7CB50AF32074B160007759FE /* ConversationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7CB50AF22074B160007759FE /* ConversationCell.xib */; };
 		7CB50AF52074B16D007759FE /* ConversationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB50AF42074B16D007759FE /* ConversationCell.swift */; };
@@ -50,6 +51,7 @@
 		7C449257205D132C00A6CBC3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7C6E16DB206F732E0033882E /* Auth.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
 		7C6E16DD206F73510033882E /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
+		7C7069382074F2FE00B1C50E /* ForgotOK.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ForgotOK.storyboard; sourceTree = "<group>"; };
 		7CB50AEF2074AFA2007759FE /* ConversationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationViewController.swift; sourceTree = "<group>"; };
 		7CB50AF22074B160007759FE /* ConversationCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConversationCell.xib; sourceTree = "<group>"; };
 		7CB50AF42074B16D007759FE /* ConversationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationCell.swift; sourceTree = "<group>"; };
@@ -183,6 +185,7 @@
 			isa = PBXGroup;
 			children = (
 				7C6E16DB206F732E0033882E /* Auth.storyboard */,
+				7C7069382074F2FE00B1C50E /* ForgotOK.storyboard */,
 				7CB50AF82074DCBE007759FE /* Forgot.storyboard */,
 				7CB50AF62074D5D2007759FE /* SingUp.storyboard */,
 				7C6E16DD206F73510033882E /* AuthViewController.swift */,
@@ -292,6 +295,7 @@
 				7C150D4E2056D5CC00DF0E62 /* Main.storyboard in Resources */,
 				7C6E16DC206F732E0033882E /* Auth.storyboard in Resources */,
 				7C150D652056E71200DF0E62 /* Notifications.storyboard in Resources */,
+				7C7069392074F2FE00B1C50E /* ForgotOK.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

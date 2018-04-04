@@ -35,9 +35,9 @@ class AuthViewController: UIViewController{
         super.viewDidLoad()
         self.view.backgroundColor = UIColor(patternImage: UIImage(named: "bg img")!)
         ///////////////loginButton//////////////////
-        self.buttonLogin.layer.borderWidth = 1.0
+        self.buttonLogin?.layer.borderWidth = 1.0
         let borderAlpha : CGFloat = 0.7
-        self.buttonLogin.layer.borderColor = UIColor(white: 1.0, alpha: borderAlpha).cgColor
+        self.buttonLogin?.layer.borderColor = UIColor(white: 1.0, alpha: borderAlpha).cgColor
         ///////////////End loginButton//////////////////
         ///////////////textField//////////////////
         let border = CALayer()
@@ -49,13 +49,18 @@ class AuthViewController: UIViewController{
         border2.borderColor = UIColor.darkGray.cgColor
         border2.borderWidth = width
         ///////////////username input//////////////////
-        border.frame = CGRect(x: 0, y: username.frame.size.height - width, width:  username.frame.size.width, height: username.frame.size.height)
-        username.layer.addSublayer(border)
-        username.layer.masksToBounds = true
+        if((username) != nil){
+            border.frame = CGRect(x: 0, y: (username?.frame.size.height)! - width, width:  (username.frame.size.width), height: (username?.frame.size.height)!)
+            username?.layer.addSublayer(border)
+            username?.layer.masksToBounds = true
+        }
+        
         ///////////////password input//////////////////
+        if((password) != nil){
         border2.frame = CGRect(x: 0, y: password.frame.size.height - width, width:  password.frame.size.width, height: password.frame.size.height)
         password.layer.addSublayer(border2)
         password.layer.masksToBounds = true
+        }
         ///////////////End textField//////////////////
 
     }
@@ -81,6 +86,23 @@ class AuthViewController: UIViewController{
 
     }
     
+    @IBAction func ResetPassword(_ sender: Any) {
+        let usernameText = username.text
+        Auth.auth().sendPasswordReset(withEmail: usernameText!) { error in
+            if let error = error{
+                debugPrint("#############")
+                debugPrint("∑∑∑∑∑∑∑∑∑∑∑∑∑")
+                debugPrint("#############")
+                debugPrint(error.localizedDescription)
+            }
+            debugPrint("#############")
+            debugPrint("////////////")
+            debugPrint("#############")
+            guard let appDeligate = UIApplication.shared.delegate as? AppDelegate else {return}
+            guard let main = UIStoryboard(name: "ForgotOK", bundle: Bundle.main).instantiateInitialViewController() else {return}
+            appDeligate.window?.rootViewController = main
+        }
+    }
     
     @IBAction func ForgotPassword(_ sender: Any) {
         debugPrint("*************")
