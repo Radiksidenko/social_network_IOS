@@ -29,7 +29,8 @@ class ChatController: UIViewController {
         debugPrint("////////////////")
         debugPrint("/////",data,"///////")
         debugPrint("////////////////")
-        let messageRef = ref.child("user/\(userID)/").childByAutoId()
+        let messageRef = ref.child("message/").childByAutoId()
+//        let messageRef = ref.child("user/\(userID)/").childByAutoId()
         messageRef.setValue(data){( error, databaseRef) in
             if let error = error {
                 debugPrint(error.localizedDescription)
@@ -43,9 +44,9 @@ class ChatController: UIViewController {
         observeChat()
     }
     private func observeChat(){
-        guard let userID = auth.currentUser?.uid
-            else{return}
-        ref.child("user/\(userID)/").observe(.childAdded){(snapshot) in
+//        guard let userID = auth.currentUser?.uid
+//            else{return}
+        ref.child("message/").observe(.childAdded){(snapshot) in
             DispatchQueue.main.async {
                 let text = self.messageBoard.text
                 let value = snapshot.value as! [String : AnyObject]
