@@ -26,9 +26,12 @@ class AuthViewController: UIViewController{
                                 if let error = error{
                                     debugPrint(error.localizedDescription)
                                 }
-                                debugPrint("////////////")
-                                debugPrint(user)
-                                self?.switcMain()
+                                if !(error != nil){
+                                    debugPrint("////////////")
+                                    debugPrint(user)
+                                    self?.switcMain()
+                                }
+                                
         }
     }
     override func viewDidLoad() {
