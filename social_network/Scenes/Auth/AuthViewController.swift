@@ -26,6 +26,8 @@ class AuthViewController: UIViewController{
                                 if let error = error{
                                     debugPrint(error.localizedDescription)
                                 }
+                               
+                                
                                 if !(error != nil){
                                     debugPrint("////////////")
                                     debugPrint(user)
