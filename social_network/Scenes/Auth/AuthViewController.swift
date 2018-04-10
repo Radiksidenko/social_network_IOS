@@ -11,24 +11,62 @@ import FirebaseAuth
 
 class AuthViewController: UIViewController{
     
-
+    class func displaySpinner(onView : UIView) -> UIView {
+        let spinnerView = UIView.init(frame: onView.bounds)
+        spinnerView.backgroundColor = UIColor.init(red: 0.5, green: 0.5, blue: 0.5, alpha: 0.5)
+        let ai = UIActivityIndicatorView.init(activityIndicatorStyle: .whiteLarge)
+        ai.startAnimating()
+        ai.center = spinnerView.center
+        
+        DispatchQueue.main.async {
+            spinnerView.addSubview(ai)
+            onView.addSubview(spinnerView)
+        }
+        
+        return spinnerView
+    }
+    
+    class func removeSpinner(spinner :UIView) {
+        DispatchQueue.main.async {
+            spinner.removeFromSuperview()
+        }
+    }
+    
+    
+    
     @IBOutlet weak var username: UITextField!
     @IBOutlet weak var password: UITextField!
     
     @IBOutlet weak var buttonLogin: UIButton!
+    
+    
     @IBAction func login(_ sender: Any) {
+        let sv = AuthViewController.displaySpinner(onView: self.view)
         guard let usernameText = username.text,
-        let passwordText = password.text,
-        passwordText.count >= 6
-        else{ return}
+            let passwordText = password.text
+            //        passwordText.count >= 6
+            else{ return}
         Auth.auth().signIn( withEmail: usernameText,
                             password: passwordText){[weak self] (user, error) in
                                 if let error = error{
+                                    debugPrint("$$$$$$$$$$$$$$$")
                                     debugPrint(error.localizedDescription)
+                                    debugPrint("$$$$$$$$$$$$$$$")
+                                    debugPrint("œœœœœœœœœœœœœœ")
+                                    AuthViewController.removeSpinner(spinner: sv)
+                                    
+                                    let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
+                                    alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: { _ in
+                                        NSLog("The \"OK\" alert occured.")
+                                    }))
+                                    
+                                    self?.present((alert), animated: true, completion: nil)
+                                    
                                 }
-                               
+                                
                                 
                                 if !(error != nil){
+                                    AuthViewController.removeSpinner(spinner: sv)
                                     debugPrint("////////////")
                                     debugPrint(user)
                                     self?.switcMain()
@@ -62,18 +100,19 @@ class AuthViewController: UIViewController{
         
         ///////////////password input//////////////////
         if((password) != nil){
-        border2.frame = CGRect(x: 0, y: password.frame.size.height - width, width:  password.frame.size.width, height: password.frame.size.height)
-        password.layer.addSublayer(border2)
-        password.layer.masksToBounds = true
+            border2.frame = CGRect(x: 0, y: password.frame.size.height - width, width:  password.frame.size.width, height: password.frame.size.height)
+            password.layer.addSublayer(border2)
+            password.layer.masksToBounds = true
         }
         ///////////////End textField//////////////////
-
+        
     }
     
     @IBAction func createUser(_ sender: Any) {
+        let sv = AuthViewController.displaySpinner(onView: self.view)
         guard let usernameText = username.text,
-            let passwordText = password.text,
-            passwordText.count >= 6
+            let passwordText = password.text
+            //            passwordText.count >= 6
             else{ return}
         Auth.auth().createUser(withEmail: usernameText, password: passwordText) { (user, error) in
             if let error = error{
@@ -81,14 +120,24 @@ class AuthViewController: UIViewController{
                 debugPrint("∑∑∑∑∑∑∑∑∑∑∑∑∑")
                 debugPrint("#############")
                 debugPrint(error.localizedDescription)
+                AuthViewController.removeSpinner(spinner: sv)
+                
+                let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: { _ in
+                    NSLog("The \"OK\" alert occured.")
+                }))
+                
+                self.present((alert), animated: true, completion: nil)
             }
-            debugPrint("#############")
-            debugPrint("////////////")
-            debugPrint("#############")
-            debugPrint(user)
-            self.switcMain()
+            if !(error != nil){
+                debugPrint("#############")
+                debugPrint("////////////")
+                debugPrint("#############")
+                debugPrint(user)
+                self.switcMain()
+            }
         }
-
+        
     }
     
     @IBAction func ResetPassword(_ sender: Any) {
