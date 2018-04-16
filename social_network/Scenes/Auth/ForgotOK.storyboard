@@ -18,38 +18,51 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TA9-CC-0th">
-                                <rect key="frame" x="168" y="407" width="38" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="LogIn">
-                                    <color key="titleColor" red="0.047058823529411764" green="0.83921568627450982" blue="0.98431372549019602" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="back:" destination="QgP-CL-PS2" eventType="touchUpInside" id="1zK-wG-nG7"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Go to" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UC6-Fd-MOi">
-                                <rect key="frame" x="118" y="411" width="42" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To recover the password, check the mail" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E3A-op-NrQ">
+                                <rect key="frame" x="34" y="184" width="253" height="52"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="52" id="izA-F2-10K"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="To recover the password, check the mail" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E3A-op-NrQ">
-                                <rect key="frame" x="34" y="186" width="253" height="52"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wDl-Lm-GNC">
+                                <rect key="frame" x="120" y="353" width="80" height="30"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Go to" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UC6-Fd-MOi">
+                                        <rect key="frame" x="0.0" y="0.0" width="42" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TA9-CC-0th">
+                                        <rect key="frame" x="42" y="0.0" width="38" height="30"/>
+                                        <state key="normal" title="LogIn">
+                                            <color key="titleColor" red="0.047058823529411764" green="0.83921568627450982" blue="0.98431372549019602" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="back:" destination="QgP-CL-PS2" eventType="touchUpInside" id="1zK-wG-nG7"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="E3A-op-NrQ" firstAttribute="top" secondItem="3LT-NQ-iBn" secondAttribute="top" constant="164" id="2xG-zU-dtG"/>
+                            <constraint firstItem="E3A-op-NrQ" firstAttribute="leading" secondItem="3LT-NQ-iBn" secondAttribute="leading" constant="34" id="AFk-0O-4tr"/>
+                            <constraint firstItem="wDl-Lm-GNC" firstAttribute="centerX" secondItem="E3A-op-NrQ" secondAttribute="centerX" id="Inl-fN-m0v"/>
+                            <constraint firstItem="3LT-NQ-iBn" firstAttribute="bottom" secondItem="wDl-Lm-GNC" secondAttribute="bottom" constant="185" id="Xdb-st-dkm"/>
+                            <constraint firstItem="wDl-Lm-GNC" firstAttribute="leading" secondItem="3LT-NQ-iBn" secondAttribute="leading" constant="120" id="brO-KB-Qxb"/>
+                            <constraint firstItem="3LT-NQ-iBn" firstAttribute="trailing" secondItem="wDl-Lm-GNC" secondAttribute="trailing" constant="120" id="sQb-vj-Uz4"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="3LT-NQ-iBn"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rfr-QC-BsD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="198.75" y="-225"/>
+            <point key="canvasLocation" x="197.59999999999999" y="-225.33733133433284"/>
         </scene>
     </scenes>
 </document>

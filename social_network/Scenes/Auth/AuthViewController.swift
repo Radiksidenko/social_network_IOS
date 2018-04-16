@@ -76,7 +76,19 @@ class AuthViewController: UIViewController{
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "bg img")!)
+//        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "bg img")!)
+        /////////////////////////
+        let background = UIImage(named: "bg img")
+        
+        var imageView : UIImageView!
+        imageView = UIImageView(frame: view.bounds)
+        imageView.contentMode =  UIViewContentMode.scaleAspectFill
+        imageView.clipsToBounds = true
+        imageView.image = background
+        imageView.center = view.center
+        view.addSubview(imageView)
+        self.view.sendSubview(toBack: imageView)
+        /////////////////////////
         ///////////////loginButton//////////////////
         self.buttonLogin?.layer.borderWidth = 1.0
         let borderAlpha : CGFloat = 0.7

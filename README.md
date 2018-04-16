@@ -1,1 +1,1 @@
-кнопка logout находится во вкладке уведомлений. Интерфейс пока преднозначен для iphone 5-SE
+swift application on firebase for learning
