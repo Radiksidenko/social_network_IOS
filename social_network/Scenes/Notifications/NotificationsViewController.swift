@@ -33,10 +33,11 @@ class NotificationsViewController: UIViewController,UITableViewDelegate,UITableV
             alpha: CGFloat(1.0)
         )
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         //self.tableView.backgroundColor = UIColor.black
-        self.navigationController?.navigationBar.titleTextAttributes =  [NSAttributedStringKey.foregroundColor: hexStringToUIColor(hex: "BBBBBB")]
+        self.navigationController?.navigationBar.titleTextAttributes =  [NSAttributedStringKey.foregroundColor: hexStringToUIColor(hex: "fffff")]
         setuoTableWiew()
     }
     func setuoTableWiew(){
