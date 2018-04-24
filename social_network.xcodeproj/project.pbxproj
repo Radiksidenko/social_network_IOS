@@ -24,6 +24,8 @@
 		7C6E16DC206F732E0033882E /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C6E16DB206F732E0033882E /* Auth.storyboard */; };
 		7C6E16DE206F73510033882E /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6E16DD206F73510033882E /* AuthViewController.swift */; };
 		7C7069392074F2FE00B1C50E /* ForgotOK.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C7069382074F2FE00B1C50E /* ForgotOK.storyboard */; };
+		7C9C7A9F208F65CB0020828F /* AInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C9C7A9E208F65CB0020828F /* AInfo.storyboard */; };
+		7C9C7AA1208F65FB0020828F /* AInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C9C7AA0208F65FB0020828F /* AInfoController.swift */; };
 		7CB50AF02074AFA2007759FE /* ConversationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB50AEF2074AFA2007759FE /* ConversationViewController.swift */; };
 		7CB50AF32074B160007759FE /* ConversationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7CB50AF22074B160007759FE /* ConversationCell.xib */; };
 		7CB50AF52074B16D007759FE /* ConversationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB50AF42074B16D007759FE /* ConversationCell.swift */; };
@@ -53,6 +55,8 @@
 		7C6E16DB206F732E0033882E /* Auth.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
 		7C6E16DD206F73510033882E /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		7C7069382074F2FE00B1C50E /* ForgotOK.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ForgotOK.storyboard; sourceTree = "<group>"; };
+		7C9C7A9E208F65CB0020828F /* AInfo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AInfo.storyboard; sourceTree = "<group>"; };
+		7C9C7AA0208F65FB0020828F /* AInfoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AInfoController.swift; sourceTree = "<group>"; };
 		7CB50AEF2074AFA2007759FE /* ConversationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationViewController.swift; sourceTree = "<group>"; };
 		7CB50AF22074B160007759FE /* ConversationCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConversationCell.xib; sourceTree = "<group>"; };
 		7CB50AF42074B16D007759FE /* ConversationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationCell.swift; sourceTree = "<group>"; };
@@ -120,6 +124,7 @@
 		7C150D5A2056D98200DF0E62 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				7C9C7A9D208F65740020828F /* additionalInfo */,
 				7C6E16D8206F6F160033882E /* Auth */,
 				7C150D5F2056D9CD00DF0E62 /* Notifications */,
 				7C150D5E2056D9B900DF0E62 /* Chat */,
@@ -194,6 +199,15 @@
 				7C6E16DD206F73510033882E /* AuthViewController.swift */,
 			);
 			path = Auth;
+			sourceTree = "<group>";
+		};
+		7C9C7A9D208F65740020828F /* additionalInfo */ = {
+			isa = PBXGroup;
+			children = (
+				7C9C7A9E208F65CB0020828F /* AInfo.storyboard */,
+				7C9C7AA0208F65FB0020828F /* AInfoController.swift */,
+			);
+			path = additionalInfo;
 			sourceTree = "<group>";
 		};
 		7CB50AEE2074AF17007759FE /* conversation */ = {
@@ -288,6 +302,7 @@
 				7C1EF3E320617972003FF4CD /* Feed.storyboard in Resources */,
 				7C150D532056D5CC00DF0E62 /* LaunchScreen.storyboard in Resources */,
 				7C449258205D132C00A6CBC3 /* GoogleService-Info.plist in Resources */,
+				7C9C7A9F208F65CB0020828F /* AInfo.storyboard in Resources */,
 				7C1EF3E12061738B003FF4CD /* Camera.storyboard in Resources */,
 				7CB50AF92074DCBE007759FE /* Forgot.storyboard in Resources */,
 				7C150D502056D5CC00DF0E62 /* Assets.xcassets in Resources */,
@@ -370,6 +385,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7C150D6B2056E8AC00DF0E62 /* NotificationsViewController.swift in Sources */,
+				7C9C7AA1208F65FB0020828F /* AInfoController.swift in Sources */,
 				7CB50AF02074AFA2007759FE /* ConversationViewController.swift in Sources */,
 				7C1EF3DF2061722B003FF4CD /* ChatController.swift in Sources */,
 				7C6E16DE206F73510033882E /* AuthViewController.swift in Sources */,

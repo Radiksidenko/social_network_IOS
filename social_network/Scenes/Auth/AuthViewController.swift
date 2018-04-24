@@ -151,7 +151,7 @@ class AuthViewController: UIViewController{
             }
             if !(error != nil){
                 debugPrint(user)
-                self.switcPage(page: "Main")
+                self.switcPage(page: "AInfo")
             }
         }
     }

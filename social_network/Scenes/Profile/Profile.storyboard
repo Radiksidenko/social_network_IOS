@@ -68,47 +68,12 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="change  Bio" translatesAutoresizingMaskIntoConstraints="NO" id="NuR-Vw-vm1">
-                                <rect key="frame" x="16" y="299" width="343" height="80"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" borderStyle="bezel" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rZB-Es-uyR">
-                                <rect key="frame" x="16" y="183" width="343" height="30"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <attributedString key="attributedText">
-                                    <fragment content="change First name">
-                                        <attributes>
-                                            <color key="NSColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <font key="NSFont" metaFont="system" size="14"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                </attributedString>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="change Last name" borderStyle="bezel" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MN3-6N-TcZ">
-                                <rect key="frame" x="16" y="223" width="343" height="30"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="change nickname" borderStyle="bezel" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VGB-ws-dpT">
-                                <rect key="frame" x="16" y="261" width="343" height="30"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0eM-6j-NwW">
-                                <rect key="frame" x="172" y="387" width="30" height="30"/>
+                                <rect key="frame" x="121" y="244" width="133" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="ok"/>
+                                <state key="normal" title="change information"/>
                                 <connections>
-                                    <action selector="changeUserInfo:" destination="6Xx-4G-unq" eventType="touchUpInside" id="DYx-0x-Vpw"/>
+                                    <action selector="changeInformation:" destination="6Xx-4G-unq" eventType="touchUpInside" id="QtD-Xh-bIU"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -125,10 +90,6 @@
                     <connections>
                         <outlet property="FNameAndLName" destination="ja4-sI-3yY" id="vfg-Tx-QxV"/>
                         <outlet property="bio" destination="Emj-Zp-N3l" id="rMw-Ry-Cux"/>
-                        <outlet property="changeBio" destination="NuR-Vw-vm1" id="pe8-F5-rxx"/>
-                        <outlet property="changeFName" destination="rZB-Es-uyR" id="0sD-gE-xvY"/>
-                        <outlet property="changeLName" destination="MN3-6N-TcZ" id="h7U-cG-gOo"/>
-                        <outlet property="changeNickname" destination="VGB-ws-dpT" id="aOw-iV-a05"/>
                         <outlet property="nickname" destination="75L-3b-SCD" id="88e-dq-Td9"/>
                     </connections>
                 </viewController>

@@ -20,6 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         if Auth.auth().currentUser != nil {
              let appDeligate = UIApplication.shared.delegate as? AppDelegate
+            //Main AInfo
              let main = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateInitialViewController()
             appDeligate?.window?.rootViewController = main
         }
