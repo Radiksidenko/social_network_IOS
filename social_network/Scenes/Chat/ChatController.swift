@@ -44,6 +44,17 @@ class ChatController: UIViewController {
         observeChat()
     }
     private func observeChat(){
+        
+        ref.child("users/").observe(.childAdded){(snapshot) in
+            DispatchQueue.main.async {
+                let value = snapshot.value as! [String : AnyObject]
+                let message = value["usernickname"] as! String
+                debugPrint("??????????????????????????")
+                debugPrint(message)
+                debugPrint("////////////////////////////")
+            }
+        }
+        
 //        guard let userID = auth.currentUser?.uid
 //            else{return}
         ref.child("message/").observe(.childAdded){(snapshot) in

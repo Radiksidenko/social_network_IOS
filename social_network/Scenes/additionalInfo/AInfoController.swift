@@ -10,10 +10,15 @@
 import UIKit
 import FirebaseAuth
 import FirebaseDatabase
+import Firebase
 
 class AInfoController: UIViewController {
-    
-    
+    ///////////////////storage/////////////////////////
+   
+    private func storageTest(){
+        
+    }
+    ///////////////////storage/////////////////////////
     @IBOutlet weak var changeFName: UITextField!
     @IBOutlet weak var changeLName: UITextField!
     @IBOutlet weak var changeNickname: UITextField!
