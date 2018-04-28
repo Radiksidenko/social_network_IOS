@@ -10,6 +10,7 @@
 import UIKit
 import FirebaseAuth
 import FirebaseDatabase
+import FirebaseStorage
 
 class ProfileController: UIViewController {
     
@@ -43,6 +44,10 @@ class ProfileController: UIViewController {
     @IBOutlet weak var FNameAndLName: UILabel!
     @IBOutlet weak var nickname: UILabel!
     @IBOutlet weak var bio: UITextView!
+    @IBOutlet weak var gender: UILabel!
+    @IBOutlet weak var phone: UILabel!
+    @IBOutlet weak var userImage: UIImageView!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -69,9 +74,27 @@ class ProfileController: UIViewController {
                 let usernickname = value?["usernickname"] as? String ?? ""
                 let userbio = value?["userbio"] as? String ?? ""
                 
+                let gender = value?["gender"] as? String ?? ""
+                let phone = value?["phone"] as? String ?? ""
+                
                 self.FNameAndLName.text = username + " " + userlname
                 self.nickname.text = "@"+usernickname
                 self.bio.text = userbio
+                self.gender.text = gender
+                self.phone.text = phone
+                
+                let storage = Storage.storage()
+                let storageRef = storage.reference()
+                let islandRef = storageRef.child(value?["userPhoto"] as? String ?? "")
+                islandRef.getData(maxSize: 1 * 1024 * 1024) { data, error in
+                    if let error = error {
+                        // Uh-oh, an error occurred!
+                    } else {
+                        // Data for "images/island.jpg" is returned
+                        let image = UIImage(data: data!)
+                        self.userImage.image = UIImage(data: data!)
+                    }
+                }
             }
             
         }) { (error) in

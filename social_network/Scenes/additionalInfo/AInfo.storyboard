@@ -97,7 +97,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="avatar" translatesAutoresizingMaskIntoConstraints="NO" id="Z9i-OZ-UIJ">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="avatar2" translatesAutoresizingMaskIntoConstraints="NO" id="Z9i-OZ-UIJ">
                                 <rect key="frame" x="152" y="91" width="70" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <userDefinedRuntimeAttributes>
@@ -107,13 +107,6 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Change my photo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AHP-EI-sDJ">
-                                <rect key="frame" x="119" y="169" width="136" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.047058823529411764" green="0.83921568627450982" blue="0.98431372549019602" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3UX-YQ-0MZ">
                                 <rect key="frame" x="172" y="550" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -136,6 +129,16 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yaM-mO-VLH">
+                                <rect key="frame" x="126" y="169" width="122" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Change my photo">
+                                    <color key="titleColor" red="0.047058823529411764" green="0.83921568627450982" blue="0.98431372549019602" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="storageTest:" destination="CmU-Ls-Oef" eventType="touchUpInside" id="CHJ-nQ-43Y"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="EuG-Ea-RgP"/>
@@ -147,6 +150,7 @@
                         <outlet property="changeFName" destination="BON-SW-WUP" id="Yc3-Ps-oTF"/>
                         <outlet property="changeLName" destination="FWp-D6-GSd" id="OQb-0X-4tN"/>
                         <outlet property="changeNickname" destination="5hK-s9-Trt" id="SL8-O0-hHL"/>
+                        <outlet property="userImage" destination="Z9i-OZ-UIJ" id="yNE-tL-f5m"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a4z-Kg-Kvb" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -155,6 +159,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="avatar" width="724" height="724"/>
+        <image name="avatar2" width="50" height="50"/>
     </resources>
 </document>

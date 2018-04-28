@@ -8,29 +8,85 @@
 
 
 import UIKit
+import Firebase
 import FirebaseAuth
 import FirebaseDatabase
-import Firebase
+import FirebaseStorage
 
-class AInfoController: UIViewController {
-    ///////////////////storage/////////////////////////
+class AInfoController: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate {
    
-    private func storageTest(){
-        
-    }
     ///////////////////storage/////////////////////////
+    
+    @IBAction private func storageTest(_ sender: Any){
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        
+        present(imagePicker, animated: true, completion: nil)
+ 
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
+        print("Cancel")
+    }
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        print(info)
+        let profileImageFromPicker = info[UIImagePickerControllerOriginalImage] as! UIImage
+        let data: Data = UIImageJPEGRepresentation(profileImageFromPicker, 0.5)!
+        let storage = Storage.storage()
+        let storageRef = storage.reference()
+        let userID = Auth.auth().currentUser?.uid
+
+        var imageRef = storageRef.child("images/"+userID!+"userPhoto.jpg")
+        _ = imageRef.putData(data, metadata: nil, completion: {
+            (metadata,error ) in
+            guard let metadata = metadata else{
+                print(error)
+                return
+            }
+            let downloadURL = metadata.downloadURL()
+            print(downloadURL)
+            self.setInfo()
+        })
+        //////////////////////////////////////////
+        
+        
+        self.ref.child("users/"+userID!+"/userPhoto").setValue("images/"+userID!+"userPhoto.jpg")
+        dismiss(animated: true, completion: nil)
+    }
+    
+    ///////////////////storage/////////////////////////
+    
+    
+    
     @IBOutlet weak var changeFName: UITextField!
     @IBOutlet weak var changeLName: UITextField!
     @IBOutlet weak var changeNickname: UITextField!
     @IBOutlet weak var changeBio: UITextView!
     @IBOutlet weak var gender: UITextField!
     @IBOutlet weak var phone: UITextField!
+    @IBOutlet weak var userImage: UIImageView!
     
     private var ref = Database.database().reference()
     private var auth = Auth.auth()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        ////////////////////////background/////////////////////
+        //self.view.backgroundColor = UIColor(patternImage: UIImage(named: "bg img")!)
+        
+        let background = UIImage(named: "bg img")
+        var imageView : UIImageView!
+        imageView = UIImageView(frame: view.bounds)
+        imageView.contentMode =  UIViewContentMode.scaleAspectFill
+        imageView.clipsToBounds = true
+        imageView.image = background
+        imageView.center = view.center
+        view.addSubview(imageView)
+        self.view.sendSubview(toBack: imageView)
+        ////////////////////////////////////////////
+        
+        
         setInfo()
         AInfoController.style(input: changeFName)
         AInfoController.style(input: changeLName)
@@ -88,7 +144,21 @@ class AInfoController: UIViewController {
                 self.gender.text = genderVal
                 self.phone.text = phoneVal
                 
+                ////////////////////////////////
+
                 
+                let storage = Storage.storage()
+                let storageRef = storage.reference()
+                let islandRef = storageRef.child(value?["userPhoto"] as? String ?? "")
+                islandRef.getData(maxSize: 1 * 1024 * 1024) { data, error in
+                    if let error = error {
+                        // Uh-oh, an error occurred!
+                    } else {
+                        // Data for "images/island.jpg" is returned
+                        let image = UIImage(data: data!)
+                        self.userImage.image = UIImage(data: data!)
+                    }
+                }
             }
             
         }) { (error) in
