@@ -95,6 +95,11 @@ class AInfoController: UIViewController,UIImagePickerControllerDelegate,UINaviga
         AInfoController.style(input: phone)
         
     }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+    }
+    
     class func style(input :UITextField) {
         let width = CGFloat(2.0)
         

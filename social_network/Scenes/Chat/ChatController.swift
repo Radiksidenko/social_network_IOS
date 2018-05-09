@@ -10,7 +10,7 @@ import UIKit
 import FirebaseAuth
 import FirebaseDatabase
 
-class ChatController: UIViewController {
+class ChatController: UIViewController, UITextFieldDelegate {
     private var ref = Database.database().reference()
     private var auth = Auth.auth()
     
@@ -23,7 +23,7 @@ class ChatController: UIViewController {
             !message.isEmpty
             else{return}
         let data = [
-//            "user": userID,
+            "user": userID,
             "message": message
         ]
         debugPrint("////////////////")
@@ -38,33 +38,68 @@ class ChatController: UIViewController {
             }
         }
     }
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+    }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textMessage.resignFirstResponder()
+        return true
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         observeChat()
     }
+    
     private func observeChat(){
         
-        ref.child("users/").observe(.childAdded){(snapshot) in
-            DispatchQueue.main.async {
-                let value = snapshot.value as! [String : AnyObject]
-                let message = value["usernickname"] as! String
-                debugPrint("??????????????????????????")
-                debugPrint(message)
-                debugPrint("////////////////////////////")
-            }
-        }
-        
+////////////////////////userListTest/////////////////////////////
+//        ref.child("users/").observe(.childAdded){(snapshot) in
+//            DispatchQueue.main.async {
+//                let value = snapshot.value as! [String : AnyObject]
+//                let message = value["usernickname"] as! String
+//                debugPrint("??????????????????????????")
+//                debugPrint(message)
+//                debugPrint("////////////////////////////")
+//            }
+//        }
 //        guard let userID = auth.currentUser?.uid
 //            else{return}
+////////////////////////////////////////////////////////////////
+        
+        
         ref.child("message/").observe(.childAdded){(snapshot) in
             DispatchQueue.main.async {
                 let text = self.messageBoard.text
                 let value = snapshot.value as! [String : AnyObject]
                 let message = value["message"] as! String
+               
+                
+                var usernickname: String!
+                
+                
+                let user_id = value["user"] as! String
+                
+                
+                
+                self.ref.child("users").child(user_id).observeSingleEvent(of: .value, with: { (snapshot) in
+                    let value = snapshot.value as! [String : AnyObject]
+                    usernickname = value["usernickname"] as? String ?? ""
+                    print(usernickname)
+                })
+               
+
                 let appendMessage = text?.appending("\(message)\n\n")
                 self.messageBoard.text = appendMessage
                 self.textMessage.text = ""
+
+                
+                
+            
+                
+                
+               
+                
             }
         }
     }
