@@ -38,6 +38,7 @@ class ChatController: UIViewController, UITextFieldDelegate {
             }
         }
     }
+   
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
     }
@@ -89,7 +90,8 @@ class ChatController: UIViewController, UITextFieldDelegate {
                 })
                
 
-                let appendMessage = text?.appending("\(message)\n\n")
+//                let appendMessage = text?.appending("\(message)\n\n")
+                 let appendMessage = text?.appending("\(user_id) : \(message)\n\n")
                 self.messageBoard.text = appendMessage
                 self.textMessage.text = ""
 
