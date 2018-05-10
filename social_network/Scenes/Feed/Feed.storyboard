@@ -44,20 +44,22 @@
                                     <segue destination="j2e-jr-GaK" kind="show" id="vX7-Co-tPE"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BHg-tp-r9q">
-                                <rect key="frame" x="0.0" y="110" width="320" height="409"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="rhi-Eb-Rjd">
+                                <rect key="frame" x="16" y="120" width="288" height="399"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
+                                <connections>
+                                    <outlet property="dataSource" destination="zSo-Lw-8rg" id="dJG-pn-DiJ"/>
+                                    <outlet property="delegate" destination="zSo-Lw-8rg" id="1Ic-d5-tlE"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="9l2-vd-qJe"/>
                     </view>
                     <navigationItem key="navigationItem" title="Feed" id="8hf-p8-ldk"/>
                     <connections>
-                        <outlet property="feedLine" destination="BHg-tp-r9q" id="8hL-ki-wyK"/>
+                        <outlet property="feedLine" destination="rhi-Eb-Rjd" id="fxq-B3-HeP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lS4-mb-af7" userLabel="First Responder" sceneMemberID="firstResponder"/>

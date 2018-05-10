@@ -50,16 +50,8 @@ class NotificationsViewController: UIViewController,UITableViewDelegate,UITableV
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        //        var cell = tableView.dequeueReusableCell(withIdentifier: "cell")
-        //        if cell == nil {
-        //            cell = UITableViewCell(style: .default, reuseIdentifier: "cell")
-        //        }
-        //        cell!.textLabel?.text = "Hello World!"
-        //        return cell!
-        
-        
+       
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "NotificationsTableViewCell", for: indexPath) as? NotificationsTableViewCell else {fatalError()}
-//        cell.backgroundColor = hexStringToUIColor(hex: "BBBBBB")
         if(Int(indexPath[1]) % 2 == 0){
             cell.avatar.image = UIImage(named: "avatar")
             cell.name.text = "@Rick"
@@ -67,15 +59,10 @@ class NotificationsViewController: UIViewController,UITableViewDelegate,UITableV
             cell.time.text = "1337 seconds ago"
         }else{
             cell.avatar.image = UIImage(named: "avatar2")
-            //            cell.name.lineBreakMode = .byWordWrapping
-            //            cell.name.numberOfLines = 0
-            
             cell.name.text = "@Test"
-            
             cell.action.text = "1337"
             cell.time.text = "3h ago"
         }
-        
         return cell
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
