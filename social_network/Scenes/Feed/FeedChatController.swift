@@ -121,44 +121,57 @@ class FeedChatController: UIViewController, UITextFieldDelegate,UITableViewDeleg
     
     @IBAction func sendMessage(_ sender: Any) {
         
-        let storage = Storage.storage()
-        let storageRef = storage.reference()
-        
         var url = randomString(length: 6)
-        
-        var imageRef = storageRef.child("post/"+url+"posPhoto.jpg")
-        _ = imageRef.putData(postPhotoUpl, metadata: nil, completion: {
-            (metadata,error ) in
-            guard let metadata = metadata else{
-                print(error)
-                return
+        if(postPhotoUpl != nil){
+            let storage = Storage.storage()
+            let storageRef = storage.reference()
+            
+            var imageRef = storageRef.child("post/"+url+"posPhoto.jpg")
+            _ = imageRef.putData(postPhotoUpl, metadata: nil, completion: {
+                (metadata,error ) in
+                guard let metadata = metadata else{
+                    print(error)
+                    return
+                }
+                let downloadURL = metadata.downloadURL()
+                print(downloadURL)
+                
+            })
+        }
+       
+        func test(data: Any){
+            let messageRef = ref.child("feed/").childByAutoId()
+            
+            messageRef.setValue(data ?? ""){( error, databaseRef) in
+                if let error = error {
+                    debugPrint(error.localizedDescription)
+                    return
+                }
             }
-            let downloadURL = metadata.downloadURL()
-            print(downloadURL)
-
-        })
-
+        }
         
         guard let userID = auth.currentUser?.uid,
             let message = postText.text,
             !message.isEmpty
             else{return}
-        let data = [
-            "user": userID,
-            "message": message,
-            "photo": "post/"+url+"posPhoto.jpg"
-        ]
+        if(postPhotoUpl != nil){
+            let data = [
+                "user": userID,
+                "message": message,
+                "photo": "post/"+url+"posPhoto.jpg"
+            ]
+            test(data: data)
+        }else{
+            let data = [
+                "user": userID,
+                "message": message
+            ]
+            test(data: data)
+        }
+        
        
         //////////////////////////////
-        let messageRef = ref.child("feed/").childByAutoId()
         
-        messageRef.setValue(data){( error, databaseRef) in
-            if let error = error {
-                debugPrint(error.localizedDescription)
-                return
-            }
-            
-        }
         
         
     }
