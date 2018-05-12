@@ -20,6 +20,8 @@
 		7C1EF3DF2061722B003FF4CD /* ChatController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1EF3DE2061722B003FF4CD /* ChatController.swift */; };
 		7C1EF3E12061738B003FF4CD /* Camera.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C1EF3E02061738B003FF4CD /* Camera.storyboard */; };
 		7C1EF3E320617972003FF4CD /* Feed.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C1EF3E220617972003FF4CD /* Feed.storyboard */; };
+		7C2FD98C20A6EBAE0093E0D7 /* CameraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2FD98B20A6EBAE0093E0D7 /* CameraController.swift */; };
+		7C2FD98F20A6FA8C0093E0D7 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2FD98E20A6FA8C0093E0D7 /* Post.swift */; };
 		7C449258205D132C00A6CBC3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7C449257205D132C00A6CBC3 /* GoogleService-Info.plist */; };
 		7C6E16DC206F732E0033882E /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C6E16DB206F732E0033882E /* Auth.storyboard */; };
 		7C6E16DE206F73510033882E /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6E16DD206F73510033882E /* AuthViewController.swift */; };
@@ -54,6 +56,8 @@
 		7C1EF3DE2061722B003FF4CD /* ChatController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatController.swift; sourceTree = "<group>"; };
 		7C1EF3E02061738B003FF4CD /* Camera.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Camera.storyboard; sourceTree = "<group>"; };
 		7C1EF3E220617972003FF4CD /* Feed.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Feed.storyboard; sourceTree = "<group>"; };
+		7C2FD98B20A6EBAE0093E0D7 /* CameraController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraController.swift; sourceTree = "<group>"; };
+		7C2FD98E20A6FA8C0093E0D7 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		7C449257205D132C00A6CBC3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7C6E16DB206F732E0033882E /* Auth.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
 		7C6E16DD206F73510033882E /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
@@ -116,6 +120,7 @@
 		7C150D452056D5CC00DF0E62 /* social_network */ = {
 			isa = PBXGroup;
 			children = (
+				7C2FD98D20A6FA7A0093E0D7 /* model */,
 				7C449257205D132C00A6CBC3 /* GoogleService-Info.plist */,
 				7C150D5A2056D98200DF0E62 /* Scenes */,
 				7C150D462056D5CC00DF0E62 /* AppDelegate.swift */,
@@ -154,6 +159,7 @@
 			isa = PBXGroup;
 			children = (
 				7C1EF3E02061738B003FF4CD /* Camera.storyboard */,
+				7C2FD98B20A6EBAE0093E0D7 /* CameraController.swift */,
 			);
 			path = Camera;
 			sourceTree = "<group>";
@@ -195,6 +201,14 @@
 				7C150D6C2056F09C00DF0E62 /* Notifications.xib */,
 			);
 			path = cell;
+			sourceTree = "<group>";
+		};
+		7C2FD98D20A6FA7A0093E0D7 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				7C2FD98E20A6FA8C0093E0D7 /* Post.swift */,
+			);
+			path = model;
 			sourceTree = "<group>";
 		};
 		7C6E16D8206F6F160033882E /* Auth */ = {
@@ -406,10 +420,12 @@
 				7C9C7AA1208F65FB0020828F /* AInfoController.swift in Sources */,
 				7CB50AF02074AFA2007759FE /* ConversationViewController.swift in Sources */,
 				7C1EF3DF2061722B003FF4CD /* ChatController.swift in Sources */,
+				7C2FD98F20A6FA8C0093E0D7 /* Post.swift in Sources */,
 				7C6E16DE206F73510033882E /* AuthViewController.swift in Sources */,
 				7CCC791620A36DE600871323 /* FeedChatController.swift in Sources */,
 				7CF346F120A4D32D0092FA21 /* UnitTableViewCell.swift in Sources */,
 				7C150D692056E87400DF0E62 /* NotificationsTableViewCell.swift in Sources */,
+				7C2FD98C20A6EBAE0093E0D7 /* CameraController.swift in Sources */,
 				7C150D472056D5CC00DF0E62 /* AppDelegate.swift in Sources */,
 				7CB50AF52074B16D007759FE /* ConversationCell.swift in Sources */,
 				7CD77FA8208E2E7800FD6972 /* ProfileController.swift in Sources */,

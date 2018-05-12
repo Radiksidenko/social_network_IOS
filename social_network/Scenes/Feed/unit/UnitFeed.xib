@@ -11,11 +11,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="397" id="GZa-f7-147" userLabel="UnitFeedViewCell" customClass="UnitTableViewCell" customModule="social_network" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="388" height="397"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="353" id="GZa-f7-147" userLabel="UnitFeedViewCell" customClass="UnitTableViewCell" customModule="social_network" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="388" height="381"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="GZa-f7-147" id="hvf-4V-pU0">
-                <rect key="frame" x="0.0" y="0.0" width="388" height="396.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="388" height="380.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gh8-W4-K5J">
@@ -23,7 +23,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aRJ-xY-c6k">
-                        <rect key="frame" x="80" y="22" width="57" height="21"/>
+                        <rect key="frame" x="80" y="22" width="288" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
@@ -49,7 +49,7 @@
                 <outlet property="userPhoto" destination="gh8-W4-K5J" id="2HA-oP-3jA"/>
                 <outlet property="usernickname" destination="aRJ-xY-c6k" id="evV-9v-oNB"/>
             </connections>
-            <point key="canvasLocation" x="-21" y="-66.5"/>
+            <point key="canvasLocation" x="-21" y="-74.5"/>
         </tableViewCell>
     </objects>
 </document>

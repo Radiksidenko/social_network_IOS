@@ -42,6 +42,7 @@ class ChatController: UIViewController, UITextFieldDelegate {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
     }
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textMessage.resignFirstResponder()
         return true
@@ -86,15 +87,20 @@ class ChatController: UIViewController, UITextFieldDelegate {
                 self.ref.child("users").child(user_id).observeSingleEvent(of: .value, with: { (snapshot) in
                     let value = snapshot.value as! [String : AnyObject]
                     usernickname = value["usernickname"] as? String ?? ""
+                    print("mess: ", message)
+                    
+                    let appendMessage = self.messageBoard.text?.appending("\(usernickname ?? "") : \(message)\n\n")
+                    
+                    self.messageBoard.text =  appendMessage
+                    print("∑∑∑∑", text)
+//                    self.textMessage.text = ""
+
                     print(usernickname)
                 })
                
 
 //                let appendMessage = text?.appending("\(message)\n\n")
-                 let appendMessage = text?.appending("\(user_id) : \(message)\n\n")
-                self.messageBoard.text = appendMessage
-                self.textMessage.text = ""
-
+                
                 
                 
             

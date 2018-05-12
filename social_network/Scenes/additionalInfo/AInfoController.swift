@@ -33,6 +33,7 @@ class AInfoController: UIViewController,UIImagePickerControllerDelegate,UINaviga
         print(info)
         let profileImageFromPicker = info[UIImagePickerControllerOriginalImage] as! UIImage
         let data: Data = UIImageJPEGRepresentation(profileImageFromPicker, 0.5)!
+        
         let storage = Storage.storage()
         let storageRef = storage.reference()
         let userID = Auth.auth().currentUser?.uid

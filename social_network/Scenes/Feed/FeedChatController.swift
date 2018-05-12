@@ -11,16 +11,18 @@ import FirebaseAuth
 import FirebaseDatabase
 import FirebaseStorage
 
-class FeedChatController: UIViewController, UITextFieldDelegate,UITableViewDelegate,UITableViewDataSource  {
+class FeedChatController: UIViewController, UITextFieldDelegate,UITableViewDelegate,UITableViewDataSource,UIImagePickerControllerDelegate,UINavigationControllerDelegate  {
+   
     private var ref = Database.database().reference()
     private var auth = Auth.auth()
     
-    
+    var posts = [Post]()
+    var postPhotoUpl: Data!
     
     @IBOutlet weak var postText: UITextView!
     @IBOutlet weak var feedLine: UITableView!
     
- 
+    ///////////////////keyBoard/////////////////////////
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
     }
@@ -28,7 +30,7 @@ class FeedChatController: UIViewController, UITextFieldDelegate,UITableViewDeleg
         postText.resignFirstResponder()
         return true
     }
-    
+    /////////////////////////////////////////////////
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,117 +40,165 @@ class FeedChatController: UIViewController, UITextFieldDelegate,UITableViewDeleg
 
     func loadFeed(){
         let cellNib=UINib(nibName: "UnitFeed", bundle: Bundle.main) // nibName - имя файла
-        feedLine.register(cellNib, forCellReuseIdentifier: "UnitTableViewCell")
+        feedLine?.register(cellNib, forCellReuseIdentifier: "UnitTableViewCell")
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return posts.count
     }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         guard let cell = feedLine.dequeueReusableCell(withIdentifier: "UnitTableViewCell") as? UnitTableViewCell else {fatalError()}
 
-//        ref.child("feed/").observe(.childAdded){(snapshot) in
-//            DispatchQueue.main.async {
-//
-//                let value = snapshot.value as! [String : AnyObject]
-//                let message = value["message"] as! String
-//                let user = value["user"] as! String
-//
-//                let storage = Storage.storage()
-//                let storageRef = storage.reference()
-//                let islandRef = storageRef.child(value["photo"] as? String ?? "")
-//                islandRef.getData(maxSize: 1 * 1024 * 1024) { data, error in
-//                    if let error = error {
-//                        // Uh-oh, an error occurred!
-//                    } else {
-//                        // Data for "images/island.jpg" is returned
-//                        let image = UIImage(data: data!)
-//                        cell.postPhoto.image = UIImage(data: data!)
-//                    }
-//                }
-//
-//                cell.userPhoto.image = UIImage(named: "avatar")
-//                cell.usernickname.text = user
-//                cell.message.text = message
-//                cell.postPhoto?.frame.size.width = (UIImage(named: "avatar")?.size.width)!/2
-//                cell.postPhoto?.frame.size.height = (UIImage(named: "avatar")?.size.height)!/2
-//            }
-//        }
 
 
+        cell.userPhoto.image = UIImage(named: "avatar2")
+        
+        cell.usernickname.text = posts[indexPath.row].usernickname
+        cell.message.text = posts[indexPath.row].message
 
-        if(Int(indexPath[1]) % 2 == 0){
-
-            cell.userPhoto.image = UIImage(named: "avatar")
-            cell.usernickname.text = "@Rick"
-            cell.message.text = "42"
-            cell.postPhoto?.frame.size.width = (UIImage(named: "avatar")?.size.width)!/2
-            cell.postPhoto?.frame.size.height = (UIImage(named: "avatar")?.size.height)!/2
-            cell.postPhoto.image = UIImage(named: "avatar2")
+        if(posts[indexPath.row].postPhoto != nil){
+            cell.postPhoto.isHidden = false
+            cell.postPhoto.image = posts[indexPath.row].postPhoto
+            cell.postPhoto?.frame.size.width = (posts[indexPath.row].postPhoto?.size.width)!/2
+            cell.postPhoto?.frame.size.height = (posts[indexPath.row].postPhoto?.size.height)!/2
+            self.feedLine.rowHeight = (cell.postPhoto?.frame.size.height)! + 50
         }else{
-
-
-            cell.userPhoto.image = UIImage(named: "avatar2")
-            print(cell.postPhoto?.frame.size.width)
-            print("======================")
-            print((UIImage(named: "avatar")?.size.width)!)
-
-
-            cell.usernickname.text = "@Test"
-            cell.message.text = "1337"
-
-            cell.postPhoto?.frame.size.width = (UIImage(named: "avatar")?.size.width)!/2
-            cell.postPhoto?.frame.size.height = (UIImage(named: "avatar")?.size.height)!/2
-            cell.postPhoto.image = UIImage(named: "avatar")
-
-
+            cell.postPhoto.isHidden = true
+            self.feedLine.rowHeight = 100.0
         }
+        
+        
+        
+        
 
         return cell
     }
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 500
-    }
+//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        return 500
+//    }
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         return 50
     }
 
-    @IBAction func sendMessage(_ sender: Any) {
-        guard let userID = auth.currentUser?.uid,
-            let message = postText.text,
-            !message.isEmpty
-            else{return}
-        let data = [
-            "user": userID,
-            "message": message
-        ]
-
-        let messageRef = ref.child("feed/").childByAutoId()
-
-        messageRef.setValue(data){( error, databaseRef) in
-            if let error = error {
-                debugPrint(error.localizedDescription)
-                return
-            }
-        }
-    }
+    
 
 
     private func loadFeedText(){
 
         ref.child("feed/").observe(.childAdded){(snapshot) in
             DispatchQueue.main.async {
-
-
+                
                 let value = snapshot.value as! [String : AnyObject]
                 let message = value["message"] as! String
                 let user = value["user"] as! String
                 let photo = value["photo"] as? String
-
-                print(("\(user) : \(message)\n photo: \(photo)\n ___________\n"))
-
+    
+                if(photo != nil){
+                    let storage = Storage.storage()
+                    let storageRef = storage.reference()
+                    let islandRef = storageRef.child(photo as? String ?? "")
+                    islandRef.getData(maxSize: 1 * 1024 * 1024) { data, error in
+                        if let error = error {
+                            // Uh-oh, an error occurred!
+                        } else {
+                            // Data for "images/island.jpg" is returned
+                            let image = UIImage(data: data!)
+                            let post = Post(userPhotoValue: (image ?? nil)!, usernicknameValue: user ?? "", messageValue: message ?? "", postPhotoValue: (image ?? nil)!)
+                            self.posts.append(post)
+                            self.feedLine?.reloadData()
+                        }
+                    }
+                }else{
+                    let post = Post(userPhotoValue: nil, usernicknameValue: user ?? "", messageValue: message ?? "", postPhotoValue: nil)
+                    self.posts.append(post)
+                    self.feedLine?.reloadData()
+                }
             }
         }
     }
+    
+    
+    @IBAction func sendMessage(_ sender: Any) {
+        
+        let storage = Storage.storage()
+        let storageRef = storage.reference()
+        
+        var url = randomString(length: 6)
+        
+        var imageRef = storageRef.child("post/"+url+"posPhoto.jpg")
+        _ = imageRef.putData(postPhotoUpl, metadata: nil, completion: {
+            (metadata,error ) in
+            guard let metadata = metadata else{
+                print(error)
+                return
+            }
+            let downloadURL = metadata.downloadURL()
+            print(downloadURL)
+
+        })
+
+        
+        guard let userID = auth.currentUser?.uid,
+            let message = postText.text,
+            !message.isEmpty
+            else{return}
+        let data = [
+            "user": userID,
+            "message": message,
+            "photo": "post/"+url+"posPhoto.jpg"
+        ]
+       
+        //////////////////////////////
+        let messageRef = ref.child("feed/").childByAutoId()
+        
+        messageRef.setValue(data){( error, databaseRef) in
+            if let error = error {
+                debugPrint(error.localizedDescription)
+                return
+            }
+            
+        }
+        
+        
+    }
+
+    func randomString(length: Int) -> String {
+        
+        let letters : NSString = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+        let len = UInt32(letters.length)
+        
+        var randomString = ""
+        
+        for _ in 0 ..< length {
+            let rand = arc4random_uniform(len)
+            var nextChar = letters.character(at: Int(rand))
+            randomString += NSString(characters: &nextChar, length: 1) as String
+        }
+        
+        return randomString
+    }
+    
+    @IBAction func addPhoto(_ sender: Any) {
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        present(imagePicker, animated: true, completion: nil)
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
+        print("Cancel")
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        print(info)
+        let profileImageFromPicker = info[UIImagePickerControllerOriginalImage] as! UIImage
+        postPhotoUpl = UIImageJPEGRepresentation(profileImageFromPicker, 0.5)!
+        dismiss(animated: true, completion: nil)
+        
+    }
+    
+    
+    
 
 }
