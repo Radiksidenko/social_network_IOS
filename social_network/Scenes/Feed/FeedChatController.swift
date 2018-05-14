@@ -60,9 +60,13 @@ class FeedChatController: UIViewController, UITextFieldDelegate,UITableViewDeleg
         if(posts[indexPath.row].postPhoto != nil){
             cell.postPhoto.isHidden = false
             cell.postPhoto.image = posts[indexPath.row].postPhoto
-            cell.postPhoto?.frame.size.width = (posts[indexPath.row].postPhoto?.size.width)!/2
-            cell.postPhoto?.frame.size.height = (posts[indexPath.row].postPhoto?.size.height)!/2
-            self.feedLine.rowHeight = (cell.postPhoto?.frame.size.height)! + 50
+            cell.postPhoto?.frame.size.width = 300
+//            cell.postPhoto.frame.origin.y = 20.0
+            cell.postPhoto.frame.origin.x = (self.view.bounds.size.width - cell.postPhoto.frame.size.width) / 2.0
+            
+            
+           
+            self.feedLine.rowHeight = (cell.postPhoto?.frame.size.height)! + 70
         }else{
             cell.postPhoto.isHidden = true
             self.feedLine.rowHeight = 100.0
