@@ -53,7 +53,9 @@ class CameraController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        
        
+        
 //        let captureDevice = AVCaptureDevice.default(for: AVMediaType.video)
         let micDevice = AVCaptureDevice.default(for: AVMediaType.audio)
         

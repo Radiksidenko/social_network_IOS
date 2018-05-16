@@ -2,8 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSMicrophoneUsageDescription</key>
-	<string>dfd</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>
@@ -55,8 +53,14 @@
 	</array>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>jhjk</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string></string>
 	<key>NSVideoSubscriberAccountUsageDescription</key>
 	<string>cafds</string>
+	<key>NSAppleMusicUsageDescription</key>
+	<string>sads</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>dfd</string>
 	<key>NSCameraUsageDescription</key>
 	<string>Adsfgh</string>
 </dict>
