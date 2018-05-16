@@ -39,7 +39,7 @@ class FeedChatController: UIViewController, UITextFieldDelegate,UITableViewDeleg
         super.viewDidLoad()
         loadFeedText()
         loadFeed()
-        feedLine.refreshControl = self.refresh
+        feedLine?.refreshControl = self.refresh
         self.refresh.addTarget(self, action: #selector(refreshFeed(_:)), for: .valueChanged)
         
     }
