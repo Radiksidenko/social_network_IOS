@@ -9,11 +9,22 @@
 import UIKit
 import AVFoundation
 
+
 class CameraController: UIViewController {
+    @IBOutlet weak var vievCamera: UIView!
     
+    var captureSession = AVCaptureSession()
     
+    var captureDevice = AVCaptureDevice.default(for: AVMediaType.video)
+    
+    var videoLayer: AVCaptureVideoPreviewLayer?
+    var capturePhotoOutput: AVCapturePhotoOutput!
+    var movieFileOut = AVCaptureMovieFileOutput()
+    
+    @IBOutlet weak var takePhotoButton: UIButton!
+    
+    ////////////////////////Video//////////////////////
     @IBAction func recVideo(_ sender: Any) {
-        
         if movieFileOut.isRecording{
             movieFileOut.stopRecording()
         }else{
@@ -24,21 +35,24 @@ class CameraController: UIViewController {
             try? FileManager.default.removeItem(at: fileUrl!)
             movieFileOut.startRecording(to: fileUrl!, recordingDelegate: self )
         }
-        
     }
+    //////////////////////////////////////////////////
+    
+    ////////////////////////photo/////////////////////
+    @IBAction func takePhoto(_ sender: Any) {
+        
+
+        
+        self.displayAlert(userMessage: "takePhoto")
+        let settings = AVCapturePhotoSettings()
+        self.capturePhotoOutput?.capturePhoto(with: settings, delegate: self)
+    }
+    //////////////////////////////////////////////////
     
     
-    
-    
-    @IBOutlet weak var vievCamera: UIView!
-    var captureDevice = AVCaptureDevice.default(for: AVMediaType.video)
-    var captureSession: AVCaptureSession?
-    var movieFileOut = AVCaptureMovieFileOutput()
-    var videoLayer: AVCaptureVideoPreviewLayer?
-    
-    
+    ////////////////////////Flash/////////////////////
     @IBAction func flash(_ sender: Any) {
-        captureSession?.beginConfiguration()
+        captureSession.beginConfiguration()
         try? captureDevice?.lockForConfiguration()
         let mode = captureDevice?.torchMode ?? .off
         switch mode {
@@ -49,36 +63,53 @@ class CameraController: UIViewController {
         }
         
         
-        captureSession?.commitConfiguration()
+        captureSession.commitConfiguration()
     }
+    //////////////////////////////////////////////////
+   
+    ////////////////////////design////////////////////
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
+    //////////////////////////////////////////////////
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.isNavigationBarHidden = true
+        
+        takePhotoButton.layer.borderColor = UIColor.white.cgColor
+        takePhotoButton.layer.borderWidth = 5
+        takePhotoButton.clipsToBounds = true
+        takePhotoButton.layer.cornerRadius = min(takePhotoButton.frame.width, takePhotoButton.frame.height) / 2
         
        
+        captureSession.sessionPreset = AVCaptureSession.Preset.photo
+        let captureDeviceInput = try! AVCaptureDeviceInput(device: captureDevice!)
+        captureSession.addInput(captureDeviceInput)
+        capturePhotoOutput = AVCapturePhotoOutput()
+        capturePhotoOutput!.setPreparedPhotoSettingsArray([AVCapturePhotoSettings(format: [AVVideoCodecKey : AVVideoCodecType.jpeg])], completionHandler: nil)
+        captureSession.addOutput(capturePhotoOutput!)
+        /////////////////////////
+//        let micDevice = AVCaptureDevice.default(for: AVMediaType.audio)
+//        let input = try! AVCaptureDeviceInput(device: captureDevice!)
+//        let micInput = try! AVCaptureDeviceInput(device: micDevice!)
+//
+////        captureSession.addOutput(movieFileOut)
+//        captureSession.addInput(input)
+//        captureSession.addInput(micInput)
+    
         
-//        let captureDevice = AVCaptureDevice.default(for: AVMediaType.video)
-        let micDevice = AVCaptureDevice.default(for: AVMediaType.audio)
-        
-        let input = try! AVCaptureDeviceInput(device: captureDevice!)
-        let micInput = try! AVCaptureDeviceInput(device: micDevice!)
-        
-        captureSession = AVCaptureSession()
-        captureSession?.addInput(input)
-        captureSession?.addOutput(movieFileOut)
-        
-        
-        captureSession?.addInput(micInput)
-        
-       setupVideoLayer()
+        setupVideoLayer()
     }
+    
     
     
     func setupVideoLayer(){
-        videoLayer = AVCaptureVideoPreviewLayer(session: captureSession!)
+        videoLayer = AVCaptureVideoPreviewLayer(session: captureSession)
         videoLayer?.frame = UIScreen.main.bounds
         videoLayer?.videoGravity = .resizeAspectFill
         vievCamera.layer.addSublayer(videoLayer!)
-        captureSession?.startRunning()
+        captureSession.startRunning()
     }
     
     ////////////////////////window alert/////////////////////
@@ -92,13 +123,20 @@ class CameraController: UIViewController {
     
 }
 
+extension CameraController : AVCapturePhotoCaptureDelegate {
+    func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
+        if let imageData = photo.fileDataRepresentation() {
+            UIImageWriteToSavedPhotosAlbum(UIImage(data: imageData)!, nil, nil, nil)
+            dismiss(animated: true, completion: nil)
+        }
+    }
+}
+
 extension CameraController: AVCaptureFileOutputRecordingDelegate{
-    
     func fileOutput(_ output: AVCaptureFileOutput,
                     didFinishRecordingTo outputFileURL: URL,
                     from connections: [AVCaptureConnection],
                     error: Error?) {
-        
         UISaveVideoAtPathToSavedPhotosAlbum(outputFileURL.path, nil, nil, nil)
     }
 }

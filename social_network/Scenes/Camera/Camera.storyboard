@@ -37,37 +37,40 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SVi-uz-j60">
-                                <rect key="frame" x="0.0" y="64" width="320" height="147"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="211"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lar-OX-zBS">
+                                <rect key="frame" x="16" y="332" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="recVideo:" destination="PaJ-aj-STg" eventType="touchUpInside" id="v9L-sO-eWh"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RVs-kj-aHs">
+                                <rect key="frame" x="134" y="456" width="52" height="52"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <connections>
+                                    <action selector="takePhoto:" destination="PaJ-aj-STg" eventType="touchUpInside" id="7L2-st-3Gd"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fpp-ZJ-dHf">
+                                <rect key="frame" x="264" y="478" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <state key="normal" title="light"/>
+                                <connections>
+                                    <action selector="flash:" destination="PaJ-aj-STg" eventType="touchUpInside" id="jJc-Dr-ABh"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="lSs-p9-LQP"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Titles" id="Pga-27-6lu">
-                        <barButtonItem key="leftBarButtonItem" style="plain" id="FdJ-bX-tcD">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="axW-fA-onD">
-                                <rect key="frame" x="16" y="7" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="recVideo:" destination="PaJ-aj-STg" eventType="touchUpInside" id="wDt-Qr-Yrn"/>
-                                </connections>
-                            </button>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="hYD-7l-mF4">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="g7U-5L-ZSq">
-                                <rect key="frame" x="274" y="7" width="30" height="30"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <state key="normal" title="light"/>
-                                <connections>
-                                    <action selector="flash:" destination="PaJ-aj-STg" eventType="touchUpInside" id="kkb-jV-0pT"/>
-                                </connections>
-                            </button>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Titles" id="Pga-27-6lu"/>
                     <connections>
+                        <outlet property="takePhotoButton" destination="RVs-kj-aHs" id="1te-bj-gCI"/>
                         <outlet property="vievCamera" destination="SVi-uz-j60" id="sgW-uW-F7D"/>
                     </connections>
                 </viewController>
