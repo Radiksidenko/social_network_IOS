@@ -10,16 +10,15 @@ import UIKit
 import AVFoundation
 
 
-class CameraController: UIViewController {
+class CameraController: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate {
     @IBOutlet weak var vievCamera: UIView!
     
     var captureSession = AVCaptureSession()
-    
     var captureDevice = AVCaptureDevice.default(for: AVMediaType.video)
-    
     var videoLayer: AVCaptureVideoPreviewLayer?
     var capturePhotoOutput: AVCapturePhotoOutput!
     var movieFileOut = AVCaptureMovieFileOutput()
+    var previewImage: UIImage?
     
     @IBOutlet weak var takePhotoButton: UIButton!
     
@@ -40,15 +39,11 @@ class CameraController: UIViewController {
     
     ////////////////////////photo/////////////////////
     @IBAction func takePhoto(_ sender: Any) {
-        
-
-        
-        self.displayAlert(userMessage: "takePhoto")
+//        self.displayAlert(userMessage: "takePhoto")
         let settings = AVCapturePhotoSettings()
         self.capturePhotoOutput?.capturePhoto(with: settings, delegate: self)
     }
     //////////////////////////////////////////////////
-    
     
     ////////////////////////Flash/////////////////////
     @IBAction func flash(_ sender: Any) {
@@ -61,8 +56,6 @@ class CameraController: UIViewController {
         default:
             captureDevice?.torchMode = .off
         }
-        
-        
         captureSession.commitConfiguration()
     }
     //////////////////////////////////////////////////
@@ -93,12 +86,10 @@ class CameraController: UIViewController {
 //        let micDevice = AVCaptureDevice.default(for: AVMediaType.audio)
 //        let input = try! AVCaptureDeviceInput(device: captureDevice!)
 //        let micInput = try! AVCaptureDeviceInput(device: micDevice!)
-//
 ////        captureSession.addOutput(movieFileOut)
 //        captureSession.addInput(input)
 //        captureSession.addInput(micInput)
     
-        
         setupVideoLayer()
     }
     
@@ -121,14 +112,59 @@ class CameraController: UIViewController {
     }
     /////////////////////////////////////////////
     
+    ////////////////////////redirect image/////////////////////
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "PreviewPage" {
+            let previewViewController = segue.destination as! PreviewViewController
+            previewViewController.previewImage = self.previewImage
+        }
+        if segue.identifier == "PostPage" {
+            let postController = segue.destination as! PostController
+            postController.previewImage = self.previewImage
+        }
+    }
+    /////////////////////////////////////////////
+    
+    ////////////////////////Photo for post of Library/////////////////////
+    var postPhotoUpl: Data!
+    @IBAction func openLibrary(_ sender: Any) {
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        present(imagePicker, animated: true, completion: nil)
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
+        print("Cancel")
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        print("&&&&&&&&&&&")
+        let profileImageFromPicker = info[UIImagePickerControllerOriginalImage] as! UIImage
+        self.previewImage = profileImageFromPicker
+        dismiss(animated: true, completion: nil)
+        self.performSegue(withIdentifier: "PostPage", sender: nil)
+        
+//        let profileImageFromPicker = info[UIImagePickerControllerOriginalImage] as! UIImage
+//        self.previewImage = profileImageFromPicker
+//         self.performSegue(withIdentifier: "PreviewPage", sender: nil)
+        
+    }
+    
 }
 
 extension CameraController : AVCapturePhotoCaptureDelegate {
     func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
+        print("#################")
         if let imageData = photo.fileDataRepresentation() {
-            UIImageWriteToSavedPhotosAlbum(UIImage(data: imageData)!, nil, nil, nil)
-            dismiss(animated: true, completion: nil)
+            self.previewImage = UIImage(data: imageData)
+            performSegue(withIdentifier: "PreviewPage", sender: nil)
         }
+        
+//        if let imageData = photo.fileDataRepresentation() {
+//            UIImageWriteToSavedPhotosAlbum(UIImage(data: imageData)!, nil, nil, nil)
+//        }
+        
     }
 }
 

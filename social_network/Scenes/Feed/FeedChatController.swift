@@ -17,23 +17,14 @@ class FeedChatController: UIViewController, UITextFieldDelegate,UITableViewDeleg
     private var auth = Auth.auth()
     
     var posts = [Post]()
-    var postPhotoUpl: Data!
     
-    @IBOutlet weak var postText: UITextView!
+    
+    
     @IBOutlet weak var feedLine: UITableView!
     
     var refresh = UIRefreshControl()
     
-    
-    ///////////////////keyBoard/////////////////////////
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        view.endEditing(true)
-    }
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        postText.resignFirstResponder()
-        return true
-    }
-    /////////////////////////////////////////////////
+  
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -161,102 +152,6 @@ class FeedChatController: UIViewController, UITextFieldDelegate,UITableViewDeleg
             }
         }
     }
-    
-    
-    
-    
-    @IBAction func sendMessage(_ sender: Any) {
-        
-        var url = randomString(length: 6)
-        if(postPhotoUpl != nil){
-            let storage = Storage.storage()
-            let storageRef = storage.reference()
-            
-            var imageRef = storageRef.child("post/"+url+"posPhoto.jpg")
-            _ = imageRef.putData(postPhotoUpl, metadata: nil, completion: {
-                (metadata,error ) in
-                guard let metadata = metadata else{
-                    print(error)
-                    return
-                }
-                let downloadURL = metadata.downloadURL()
-                print(downloadURL)
-                
-            })
-        }
-        
-        func test(data: Any){
-            let messageRef = ref.child("feed/").childByAutoId()
-            
-            messageRef.setValue(data ?? ""){( error, databaseRef) in
-                if let error = error {
-                    debugPrint(error.localizedDescription)
-                    return
-                }
-            }
-        }
-        
-        guard let userID = auth.currentUser?.uid,
-            let message = postText.text,
-            !message.isEmpty
-            else{return}
-        if(postPhotoUpl != nil){
-            let data = [
-                "user": userID,
-                "message": message,
-                "photo": "post/"+url+"posPhoto.jpg"
-            ]
-            test(data: data)
-        }else{
-            let data = [
-                "user": userID,
-                "message": message
-            ]
-            test(data: data)
-        }
-        
-        
-        //////////////////////////////
-        
-        
-        
-    }
-    
-    func randomString(length: Int) -> String {
-        
-        let letters : NSString = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
-        let len = UInt32(letters.length)
-        
-        var randomString = ""
-        
-        for _ in 0 ..< length {
-            let rand = arc4random_uniform(len)
-            var nextChar = letters.character(at: Int(rand))
-            randomString += NSString(characters: &nextChar, length: 1) as String
-        }
-        
-        return randomString
-    }
-    
-    @IBAction func addPhoto(_ sender: Any) {
-        let imagePicker = UIImagePickerController()
-        imagePicker.delegate = self
-        present(imagePicker, animated: true, completion: nil)
-    }
-    
-    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        dismiss(animated: true, completion: nil)
-        print("Cancel")
-    }
-    
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        print(info)
-        let profileImageFromPicker = info[UIImagePickerControllerOriginalImage] as! UIImage
-        postPhotoUpl = UIImageJPEGRepresentation(profileImageFromPicker, 0.5)!
-        dismiss(animated: true, completion: nil)
-        
-    }
-    
     
     
     

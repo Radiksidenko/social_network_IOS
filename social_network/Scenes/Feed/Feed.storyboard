@@ -49,18 +49,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="9l2-vd-qJe"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Feed" id="8hf-p8-ldk">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="4It-X6-fPd">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="XH9-WI-1oG">
-                                <rect key="frame" x="274" y="7" width="30" height="30"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="+"/>
-                                <connections>
-                                    <segue destination="j2e-jr-GaK" kind="show" id="vX7-Co-tPE"/>
-                                </connections>
-                            </button>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Feed" id="8hf-p8-ldk"/>
                     <connections>
                         <outlet property="feedLine" destination="rhi-Eb-Rjd" id="fxq-B3-HeP"/>
                     </connections>
@@ -68,49 +57,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lS4-mb-af7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-90" y="197.53521126760563"/>
-        </scene>
-        <!--Feed Chat Controller-->
-        <scene sceneID="3QU-LD-m7p">
-            <objects>
-                <viewController id="j2e-jr-GaK" customClass="FeedChatController" customModule="social_network" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="N6U-lZ-3cO">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="3Tv-iA-9tc">
-                                <rect key="frame" x="16" y="64" width="288" height="160"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.90343432741116747" green="0.90343432741116747" blue="0.90343432741116747" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VYF-Sg-AYJ">
-                                <rect key="frame" x="10" y="269" width="78" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="create post"/>
-                                <connections>
-                                    <action selector="sendMessage:" destination="j2e-jr-GaK" eventType="touchUpInside" id="ipR-vO-bag"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NmW-LE-UzD">
-                                <rect key="frame" x="239" y="269" width="72" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Add Photo"/>
-                                <connections>
-                                    <action selector="addPhoto:" destination="j2e-jr-GaK" eventType="touchUpInside" id="ROE-nk-OKy"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="jGc-Xy-Ma5"/>
-                    </view>
-                    <connections>
-                        <outlet property="postText" destination="3Tv-iA-9tc" id="Jzo-pv-zuT"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="gtW-Ou-asD" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="686.25" y="199.64788732394368"/>
         </scene>
     </scenes>
     <resources>

@@ -64,6 +64,14 @@
                                     <action selector="flash:" destination="PaJ-aj-STg" eventType="touchUpInside" id="jJc-Dr-ABh"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wbz-BH-8W1">
+                                <rect key="frame" x="8" y="478" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="lib"/>
+                                <connections>
+                                    <action selector="openLibrary:" destination="PaJ-aj-STg" eventType="touchUpInside" id="uPv-M6-jys"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="lSs-p9-LQP"/>
@@ -72,14 +80,116 @@
                     <connections>
                         <outlet property="takePhotoButton" destination="RVs-kj-aHs" id="1te-bj-gCI"/>
                         <outlet property="vievCamera" destination="SVi-uz-j60" id="sgW-uW-F7D"/>
+                        <segue destination="o1I-Jx-eRM" kind="presentation" identifier="PreviewPage" id="xzV-en-rGN"/>
+                        <segue destination="oVg-KU-Boi" kind="presentation" identifier="PostPage" id="vK8-e2-JGB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jLt-X5-24M" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-279.375" y="36.971830985915496"/>
+            <point key="canvasLocation" x="-264" y="389"/>
+        </scene>
+        <!--Preview View Controller-->
+        <scene sceneID="Hx4-q3-QaW">
+            <objects>
+                <viewController id="o1I-Jx-eRM" customClass="PreviewViewController" customModule="social_network" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Mzk-UG-ggn">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ncU-Kn-tHx">
+                                <rect key="frame" x="0.0" y="63" width="320" height="505"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="slg-5F-HYm">
+                                <rect key="frame" x="6" y="25" width="34" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Back"/>
+                                <connections>
+                                    <action selector="back:" destination="o1I-Jx-eRM" eventType="touchUpInside" id="Ses-6P-UBh"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oaw-u5-QeK">
+                                <rect key="frame" x="144" y="25" width="32" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="save"/>
+                                <connections>
+                                    <action selector="save:" destination="o1I-Jx-eRM" eventType="touchUpInside" id="mrM-n9-Wwj"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3AE-dC-Tqs">
+                                <rect key="frame" x="282" y="25" width="31" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Post"/>
+                                <connections>
+                                    <action selector="post:" destination="o1I-Jx-eRM" eventType="touchUpInside" id="BHf-3u-eFS"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="cJY-n1-yK7"/>
+                    </view>
+                    <connections>
+                        <outlet property="viewPreviewImage" destination="ncU-Kn-tHx" id="Ezm-nF-wHA"/>
+                        <segue destination="oVg-KU-Boi" kind="presentation" identifier="PostPage" id="QCd-DI-bKx"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="T4Z-IE-nWF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="632" y="38"/>
+        </scene>
+        <!--Post Controller-->
+        <scene sceneID="jfU-mg-INY">
+            <objects>
+                <viewController id="oVg-KU-Boi" customClass="PostController" customModule="social_network" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="92l-V7-m3V">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="wWU-c1-z01">
+                                <rect key="frame" x="16" y="64" width="288" height="160"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.90343432739999996" green="0.90343432739999996" blue="0.90343432739999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jtt-qz-WGb">
+                                <rect key="frame" x="10" y="269" width="78" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="create post"/>
+                                <connections>
+                                    <action selector="addPost:" destination="oVg-KU-Boi" eventType="touchUpInside" id="gLt-jO-xsF"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ns0-ca-4Yr">
+                                <rect key="frame" x="10" y="26" width="34" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Back"/>
+                                <connections>
+                                    <action selector="back:" destination="oVg-KU-Boi" eventType="touchUpInside" id="coz-ii-hX7"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CzC-Tv-s2o">
+                                <rect key="frame" x="10" y="307" width="294" height="241"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="zPh-68-6JF"/>
+                    </view>
+                    <connections>
+                        <outlet property="postText" destination="wWU-c1-z01" id="XSD-aa-UIX"/>
+                        <outlet property="viewPreviewImage" destination="CzC-Tv-s2o" id="z0G-nw-OMt"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9nV-f2-jPm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1639" y="490"/>
         </scene>
     </scenes>
     <resources>
         <image name="camera" width="30" height="30"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="vK8-e2-JGB"/>
+    </inferredMetricsTieBreakers>
 </document>
