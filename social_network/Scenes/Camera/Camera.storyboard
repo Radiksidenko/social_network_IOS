@@ -26,7 +26,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G1G-in-MR1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1087" y="39"/>
+            <point key="canvasLocation" x="-1084" y="-110"/>
         </scene>
         <!--Titles-->
         <scene sceneID="2Xx-Ep-7FA">
@@ -135,7 +135,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T4Z-IE-nWF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="632" y="38"/>
+            <point key="canvasLocation" x="546" y="-111"/>
         </scene>
         <!--Post Controller-->
         <scene sceneID="jfU-mg-INY">
@@ -183,13 +183,13 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9nV-f2-jPm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1639" y="490"/>
+            <point key="canvasLocation" x="1350" y="389"/>
         </scene>
     </scenes>
     <resources>
         <image name="camera" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="vK8-e2-JGB"/>
+        <segue reference="QCd-DI-bKx"/>
     </inferredMetricsTieBreakers>
 </document>

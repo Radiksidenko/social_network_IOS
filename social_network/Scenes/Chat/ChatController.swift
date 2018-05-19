@@ -17,6 +17,7 @@ class ChatController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var messageBoard: UITextView!
     @IBOutlet weak var textMessage: UITextField!
     
+    
     @IBAction func sendMessage(_ sender: Any) {
         guard let userID = auth.currentUser?.uid,
             let message = textMessage.text,
@@ -30,7 +31,6 @@ class ChatController: UIViewController, UITextFieldDelegate {
         debugPrint("/////",data,"///////")
         debugPrint("////////////////")
         let messageRef = ref.child("message/").childByAutoId()
-//        let messageRef = ref.child("user/\(userID)/").childByAutoId()
         messageRef.setValue(data){( error, databaseRef) in
             if let error = error {
                 debugPrint(error.localizedDescription)
@@ -39,79 +39,61 @@ class ChatController: UIViewController, UITextFieldDelegate {
         }
     }
    
+     ///////////////////keyBoard/////////////////////////
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
     }
-    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textMessage.resignFirstResponder()
         return true
     }
-    
+     ////////////////////////////////////////////
     override func viewDidLoad() {
         super.viewDidLoad()
         observeChat()
+        
+        loadChannel()
+    }
+    
+    
+    func loadChannel(){
+        
+        ref.child("chat/").observe(.childAdded){(snapshot) in
+            DispatchQueue.main.async {
+                
+                let value = snapshot.value as! [String : AnyObject]
+                let messages = value["message"] as! [String : AnyObject]
+                
+                print(value["name"] as! String)
+               
+                for message in messages{
+                    print("∑∑∑∑∑∑¥¥¥¥¥¥¥¥¥¥¥¥¥¥")
+                    print(message.value)
+                    print("¥¥¥¥¥¥¥¥¥¥¥¥¥¥∑∑∑∑∑∑")
+                }
+                
+            }
+        }
     }
     
     private func observeChat(){
-        
-////////////////////////userListTest/////////////////////////////
-//        ref.child("users/").observe(.childAdded){(snapshot) in
-//            DispatchQueue.main.async {
-//                let value = snapshot.value as! [String : AnyObject]
-//                let message = value["usernickname"] as! String
-//                debugPrint("??????????????????????????")
-//                debugPrint(message)
-//                debugPrint("////////////////////////////")
-//            }
-//        }
-//        guard let userID = auth.currentUser?.uid
-//            else{return}
-////////////////////////////////////////////////////////////////
-        
-        
         ref.child("message/").observe(.childAdded){(snapshot) in
             DispatchQueue.main.async {
                 let text = self.messageBoard.text
                 let value = snapshot.value as! [String : AnyObject]
                 let message = value["message"] as! String
                
-                
                 var usernickname: String!
                 
-                
                 let user_id = value["user"] as! String
-                
-                
                 
                 self.ref.child("users").child(user_id).observeSingleEvent(of: .value, with: { (snapshot) in
                     let value = snapshot.value as! [String : AnyObject]
                     usernickname = value["usernickname"] as? String ?? ""
-                    print("mess: ", message)
-                    
                     let appendMessage = self.messageBoard.text?.appending("\(usernickname ?? "") : \(message)\n\n")
-                    
                     self.messageBoard.text =  appendMessage
-                    print("∑∑∑∑", text)
-//                    self.textMessage.text = ""
-
-                    print(usernickname)
                 })
-               
-
-//                let appendMessage = text?.appending("\(message)\n\n")
-                
-                
-                
-            
-                
-                
-               
-                
             }
         }
     }
-    
-    
-    
 }

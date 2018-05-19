@@ -20,6 +20,8 @@ class CameraController: UIViewController,UIImagePickerControllerDelegate,UINavig
     var movieFileOut = AVCaptureMovieFileOutput()
     var previewImage: UIImage?
     
+  
+    
     @IBOutlet weak var takePhotoButton: UIButton!
     
     ////////////////////////Video//////////////////////

@@ -52,19 +52,22 @@ class FeedChatController: UIViewController, UITextFieldDelegate,UITableViewDeleg
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         guard let cell = feedLine.dequeueReusableCell(withIdentifier: "UnitTableViewCell") as? UnitTableViewCell else {fatalError()}
-        
-        
-        
+
         cell.userPhoto.image = posts[indexPath.row].userPhoto ?? UIImage(named: "avatar2")
         
         cell.usernickname.text = posts[indexPath.row].usernickname
         cell.message.text = posts[indexPath.row].message
         
         if(posts[indexPath.row].postPhoto != nil){
+            
             cell.postPhoto.isHidden = false
             cell.postPhoto.image = posts[indexPath.row].postPhoto
             cell.postPhoto?.frame.size.width = 300
             //            cell.postPhoto.frame.origin.y = 20.0
+            if(cell.message.text == nil){
+                cell.message.isHidden = true
+                cell.postPhoto.frame.origin.y = 200.0
+            }
             cell.postPhoto.frame.origin.x = (self.view.bounds.size.width - cell.postPhoto.frame.size.width) / 2.0
             
             
@@ -75,52 +78,49 @@ class FeedChatController: UIViewController, UITextFieldDelegate,UITableViewDeleg
             self.feedLine.rowHeight = 100.0
         }
         
-        
-        
-        
-        
         return cell
     }
-    //    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-    //        return 500
-    //    }
+   
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         return 50
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("ok", posts[indexPath.row].id)
+    }
     
     
     
     private func loadFeedText(){
         posts.removeAll()
         ref.child("feed/").observe(.childAdded){(snapshot) in
-            
+            print(snapshot.key)
             
             let value = snapshot.value as! [String : AnyObject]
             let message = value["message"] as! String
             let user = value["user"] as! String
             let photo = value["photo"] as? String
+            let postId = snapshot.key
             
             if(photo != nil){
                 let storage = Storage.storage()
                 let storageRef = storage.reference()
-                let islandRef = storageRef.child(photo as? String ?? "")
+                let islandRef = storageRef.child(photo ?? "")
                 islandRef.getData(maxSize: 5 * 1024 * 1024) { data, error in
-                    if let error = error {
+                    if (error != nil) {
                         // Uh-oh, an error occurred!
                     } else {
                         self.ref.child("users").child(user).observeSingleEvent(of: .value, with: { (snapshot) in
                             let value = snapshot.value as? NSDictionary
                             let userPhoto = storageRef.child(value?["userPhoto"] as? String ?? "")
                             userPhoto.getData(maxSize: 5 * 1024 * 1024) { data1, error in
-                                if let error = error {
+                                if error != nil {
                                     // Uh-oh, an error occurred!
                                 } else {
-                                    print(value?["usernickname"] ?? "")
                                     let userName = value?["usernickname"] ?? "NULL42"
                                     let image = UIImage(data: data!)
                                     let userPhotoIm = UIImage(data: data1!)
-                                    let post = Post(userPhotoValue: (userPhotoIm ?? nil)!, usernicknameValue: userName as! String, messageValue: message ?? "", postPhotoValue: (image ?? nil)!)
+                                    let post = Post(postId: postId, userPhotoValue: (userPhotoIm ?? nil)!, usernicknameValue: userName as! String, messageValue: message, postPhotoValue: (image ?? nil)!)
                                     self.posts.append(post)
                                     self.feedLine?.reloadData()
                                 }
@@ -136,14 +136,14 @@ class FeedChatController: UIViewController, UITextFieldDelegate,UITableViewDeleg
                     
                     let userPhoto = storageRef.child(value?["userPhoto"] as? String ?? "")
                     userPhoto.getData(maxSize: 5 * 1024 * 1024) { data1, error in
-                        if let error = error {
+                        if error != nil {
                             // Uh-oh, an error occurred!
                         } else {
                             
                             let userName = value?["usernickname"] ?? "NULL42"
                             let userPhotoIm = UIImage(data: data1!)
                             
-                            let post = Post(userPhotoValue: nil, usernicknameValue: userName as! String, messageValue: message ?? "", postPhotoValue: nil)
+                            let post = Post(postId: postId, userPhotoValue: userPhotoIm, usernicknameValue: userName as! String, messageValue: message, postPhotoValue: nil)
                             self.posts.append(post)
                             self.feedLine?.reloadData()
                         }
