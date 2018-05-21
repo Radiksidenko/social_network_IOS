@@ -27,6 +27,7 @@
 		7C6E16DC206F732E0033882E /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C6E16DB206F732E0033882E /* Auth.storyboard */; };
 		7C6E16DE206F73510033882E /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6E16DD206F73510033882E /* AuthViewController.swift */; };
 		7C7069392074F2FE00B1C50E /* ForgotOK.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C7069382074F2FE00B1C50E /* ForgotOK.storyboard */; };
+		7C85943420B33E0700F9E0B6 /* ARCameraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C85943320B33E0700F9E0B6 /* ARCameraController.swift */; };
 		7C8EA65B20AF4EFA00DFFBDE /* PostController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8EA65A20AF4EFA00DFFBDE /* PostController.swift */; };
 		7C9C7A9F208F65CB0020828F /* AInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C9C7A9E208F65CB0020828F /* AInfo.storyboard */; };
 		7C9C7AA1208F65FB0020828F /* AInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C9C7AA0208F65FB0020828F /* AInfoController.swift */; };
@@ -66,6 +67,7 @@
 		7C6E16DB206F732E0033882E /* Auth.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
 		7C6E16DD206F73510033882E /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		7C7069382074F2FE00B1C50E /* ForgotOK.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ForgotOK.storyboard; sourceTree = "<group>"; };
+		7C85943320B33E0700F9E0B6 /* ARCameraController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARCameraController.swift; sourceTree = "<group>"; };
 		7C8EA65A20AF4EFA00DFFBDE /* PostController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostController.swift; sourceTree = "<group>"; };
 		7C9C7A9E208F65CB0020828F /* AInfo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AInfo.storyboard; sourceTree = "<group>"; };
 		7C9C7AA0208F65FB0020828F /* AInfoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AInfoController.swift; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 				7C1EF3E02061738B003FF4CD /* Camera.storyboard */,
 				7C2FD98B20A6EBAE0093E0D7 /* CameraController.swift */,
 				7C05050220AF401800D473CE /* PreviewViewController.swift */,
+				7C85943320B33E0700F9E0B6 /* ARCameraController.swift */,
 			);
 			path = Camera;
 			sourceTree = "<group>";
@@ -449,6 +452,7 @@
 				7C150D472056D5CC00DF0E62 /* AppDelegate.swift in Sources */,
 				7CB50AF52074B16D007759FE /* ConversationCell.swift in Sources */,
 				7CD77FA8208E2E7800FD6972 /* ProfileController.swift in Sources */,
+				7C85943420B33E0700F9E0B6 /* ARCameraController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

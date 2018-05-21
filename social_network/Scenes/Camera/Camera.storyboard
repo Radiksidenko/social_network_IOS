@@ -72,6 +72,14 @@
                                     <action selector="openLibrary:" destination="PaJ-aj-STg" eventType="touchUpInside" id="uPv-M6-jys"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L3l-HQ-RE8">
+                                <rect key="frame" x="202" y="478" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="AR"/>
+                                <connections>
+                                    <segue destination="iu1-3W-m5l" kind="showDetail" id="Kc3-9K-W0S"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="lSs-p9-LQP"/>
@@ -137,6 +145,47 @@
             </objects>
             <point key="canvasLocation" x="546" y="-111"/>
         </scene>
+        <!--Camera Controller-->
+        <scene sceneID="Yex-ws-MTV">
+            <objects>
+                <viewController id="iu1-3W-m5l" customClass="ARCameraController" customModule="social_network" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Zp7-Sh-3MB">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SCJ-Cl-Fct">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                            </arscnView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8QQ-mA-SSO">
+                                <rect key="frame" x="134" y="467" width="52" height="52"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="photo:" destination="iu1-3W-m5l" eventType="touchUpInside" id="k4R-Os-QkK"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="30V-ot-vG2">
+                                <rect key="frame" x="22" y="26" width="34" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="back"/>
+                                <connections>
+                                    <action selector="back:" destination="iu1-3W-m5l" eventType="touchUpInside" id="jQf-mh-8Xf"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="gWR-aB-DV1"/>
+                    </view>
+                    <connections>
+                        <outlet property="photoBut" destination="8QQ-mA-SSO" id="TpR-WZ-PaI"/>
+                        <outlet property="sceneView" destination="SCJ-Cl-Fct" id="IgO-xO-tof"/>
+                        <segue destination="o1I-Jx-eRM" kind="presentation" identifier="PreviewPage" id="agV-4D-Oar"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x4p-c2-9vT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-264.375" y="1184.1549295774648"/>
+        </scene>
         <!--Post Controller-->
         <scene sceneID="jfU-mg-INY">
             <objects>
@@ -190,6 +239,7 @@
         <image name="camera" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="QCd-DI-bKx"/>
+        <segue reference="vK8-e2-JGB"/>
+        <segue reference="agV-4D-Oar"/>
     </inferredMetricsTieBreakers>
 </document>
