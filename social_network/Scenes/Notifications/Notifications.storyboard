@@ -14,7 +14,7 @@
         <scene sceneID="uuX-CN-bj3">
             <objects>
                 <navigationController id="xJU-6B-PHj" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="notification icon" badgeValue="10" selectedImage="notification-active" id="6c4-WC-bcY"/>
+                    <tabBarItem key="tabBarItem" title="" image="notification icon" selectedImage="notification-active" id="6c4-WC-bcY"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="f80-cs-tyC">
                         <rect key="frame" x="0.0" y="20" width="320" height="44"/>
