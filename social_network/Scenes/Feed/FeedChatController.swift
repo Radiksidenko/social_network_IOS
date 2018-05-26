@@ -17,7 +17,7 @@ class FeedChatController: UIViewController, UITextFieldDelegate,UITableViewDeleg
     private var auth = Auth.auth()
     
     var posts = [Post]()
-    
+    var postID:String!
     
     
     @IBOutlet weak var feedLine: UITableView!
@@ -86,6 +86,9 @@ class FeedChatController: UIViewController, UITextFieldDelegate,UITableViewDeleg
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        PostPage
+        postID = posts[indexPath.row].id
+        performSegue(withIdentifier: "PostPage", sender: nil)
         print("ok", posts[indexPath.row].id)
     }
     
@@ -153,6 +156,12 @@ class FeedChatController: UIViewController, UITextFieldDelegate,UITableViewDeleg
         }
     }
     
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "PostPage" {
+            let postPage = segue.destination as! PostViewController
+            postPage.postID = self.postID
+        }
+        
+    }
     
 }
