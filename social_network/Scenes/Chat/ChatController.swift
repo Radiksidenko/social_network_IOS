@@ -48,6 +48,7 @@ class ChatController: UIViewController, UITextFieldDelegate {
         return true
     }
      ////////////////////////////////////////////
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         observeChat()
@@ -57,20 +58,19 @@ class ChatController: UIViewController, UITextFieldDelegate {
     
     
     func loadChannel(){
+        let userID = auth.currentUser?.uid
         
-        ref.child("chat/").observe(.childAdded){(snapshot) in
+        ref.child("users").child(userID!).child("chats").observe(.childAdded){(snapshot) in
             DispatchQueue.main.async {
                 
                 let value = snapshot.value as! [String : AnyObject]
-                let messages = value["message"] as! [String : AnyObject]
                 
-                print(value["name"] as! String)
+                
+                
                
-                for message in messages{
-                    print("∑∑∑∑∑∑¥¥¥¥¥¥¥¥¥¥¥¥¥¥")
-                    print(message.value)
-                    print("¥¥¥¥¥¥¥¥¥¥¥¥¥¥∑∑∑∑∑∑")
-                }
+                print("∑∑∑∑∑∑¥¥¥¥¥¥¥¥¥¥¥¥¥¥")
+                print(snapshot.key,value)
+                print("¥¥¥¥¥¥¥¥¥¥¥¥¥¥∑∑∑∑∑∑")
                 
             }
         }

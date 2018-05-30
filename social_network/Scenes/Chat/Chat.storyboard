@@ -63,13 +63,11 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fJH-Lz-gXq">
-                                <rect key="frame" x="0.0" y="64" width="414" height="548"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Kq1-cX-6ce">
+                                <rect key="frame" x="0.0" y="64" width="414" height="579"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -81,13 +79,13 @@
                     </view>
                     <navigationItem key="navigationItem" title="Chat" id="7vi-kI-x6U"/>
                     <connections>
-                        <outlet property="messageBoard" destination="fJH-Lz-gXq" id="8Rc-Xb-0yr"/>
+                        <outlet property="tableView" destination="Kq1-cX-6ce" id="cix-PV-nw9"/>
                         <outlet property="textMessage" destination="LEi-RR-p4D" id="6sh-gx-tCl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mMQ-fq-dPC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-618.75" y="-127.8169014084507"/>
+            <point key="canvasLocation" x="-618.84057971014499" y="-127.98913043478262"/>
         </scene>
         <!--Conversation View Controller-->
         <scene sceneID="QVx-B4-FIa">
