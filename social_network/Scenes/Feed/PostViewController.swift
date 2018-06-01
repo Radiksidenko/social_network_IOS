@@ -34,7 +34,7 @@ class PostViewController: UIViewController{
     }
    
     func test(){
-        
+        print(postID)
         
         
         

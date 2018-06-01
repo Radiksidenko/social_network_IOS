@@ -15,49 +15,22 @@ class ChatController: UIViewController, UITextFieldDelegate,UITableViewDelegate,
     private var ref = Database.database().reference()
     private var auth = Auth.auth()
     var chatList = [Chats]()
+    var idChat: String!
     
-    @IBOutlet weak var messageBoard: UITextView!
     
-    @IBOutlet weak var textMessage: UITextField!
+    
+    
+    
+  
     
     @IBOutlet weak var chatView: UITableView!
     
-    ///////////////////sendMessage/////////////////////////
-    @IBAction func sendMessage(_ sender: Any) {
-        guard let userID = auth.currentUser?.uid,
-            let message = textMessage.text,
-            !message.isEmpty
-            else{return}
-        let data = [
-            "user": userID,
-            "message": message
-        ]
-        debugPrint("////////////////")
-        debugPrint("/////",data,"///////")
-        debugPrint("////////////////")
-        let messageRef = ref.child("message/").childByAutoId()
-        messageRef.setValue(data){( error, databaseRef) in
-            if let error = error {
-                debugPrint(error.localizedDescription)
-                return
-            }
-        }
-    }
-     ////////////////////////////////////////////
     
-    ///////////////////keyBoard/////////////////////////
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        view.endEditing(true)
-    }
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textMessage.resignFirstResponder()
-        return true
-    }
-    ////////////////////////////////////////////
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //        observeChat()
                 loadChannel()
         
         setuoTableWiew()
@@ -83,7 +56,7 @@ class ChatController: UIViewController, UITextFieldDelegate,UITableViewDelegate,
 
         cell.chatName.text = chatList[indexPath.row].nameChat
         cell.chatPhoto.image = chatList[indexPath.row].chatPhoto
-        self.chatView.rowHeight = 250
+        self.chatView.rowHeight = 100
         return cell
     }
     
@@ -93,6 +66,9 @@ class ChatController: UIViewController, UITextFieldDelegate,UITableViewDelegate,
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
        print("click")
+//        chatName.text = indexPath.row as? String
+        idChat = chatList[indexPath.row].id
+        performSegue(withIdentifier: "ChatRoom", sender: nil)
     }
     
     //////////////////////////////////
@@ -132,25 +108,12 @@ class ChatController: UIViewController, UITextFieldDelegate,UITableViewDelegate,
             }
         }
     }
-    
-    private func observeChat(){
-        ref.child("message/").observe(.childAdded){(snapshot) in
-            DispatchQueue.main.async {
-                let text = self.messageBoard.text
-                let value = snapshot.value as! [String : AnyObject]
-                let message = value["message"] as! String
-                
-                var usernickname: String!
-                
-                let user_id = value["user"] as! String
-                
-                self.ref.child("users").child(user_id).observeSingleEvent(of: .value, with: { (snapshot) in
-                    let value = snapshot.value as! [String : AnyObject]
-                    usernickname = value["usernickname"] as? String ?? ""
-                    let appendMessage = self.messageBoard.text?.appending("\(usernickname ?? "") : \(message)\n\n")
-                    self.messageBoard.text =  appendMessage
-                })
-            }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ChatRoom" {
+            let chatRoom = segue.destination as! ChatRoomController
+            chatRoom.chatId = self.idChat
+            print(self.idChat)
         }
+        
     }
 }
