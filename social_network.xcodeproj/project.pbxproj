@@ -41,6 +41,8 @@
 		7CD77FA8208E2E7800FD6972 /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD77FA7208E2E7800FD6972 /* ProfileController.swift */; };
 		7CE7099720C0265D00B1B1A5 /* Chats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE7099620C0265D00B1B1A5 /* Chats.swift */; };
 		7CE7099920C041B700B1B1A5 /* ChatRoomController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE7099820C041B700B1B1A5 /* ChatRoomController.swift */; };
+		7CEB3A6520C41A1E0023C630 /* Message.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7CEB3A6420C41A1E0023C630 /* Message.xib */; };
+		7CEB3A6720C41AD90023C630 /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CEB3A6620C41AD90023C630 /* MessageCell.swift */; };
 		7CF346EF20A4D0C60092FA21 /* UnitFeed.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7CF346EE20A4D0C60092FA21 /* UnitFeed.xib */; };
 		7CF346F120A4D32D0092FA21 /* UnitTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF346F020A4D32D0092FA21 /* UnitTableViewCell.swift */; };
 		861BE651E221FBA28B389CCE /* Pods_social_network.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A09F5DB8D13EB8F6C1BA14D4 /* Pods_social_network.framework */; };
@@ -83,6 +85,8 @@
 		7CD77FA7208E2E7800FD6972 /* ProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
 		7CE7099620C0265D00B1B1A5 /* Chats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chats.swift; sourceTree = "<group>"; };
 		7CE7099820C041B700B1B1A5 /* ChatRoomController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoomController.swift; sourceTree = "<group>"; };
+		7CEB3A6420C41A1E0023C630 /* Message.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Message.xib; sourceTree = "<group>"; };
+		7CEB3A6620C41AD90023C630 /* MessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
 		7CF346EE20A4D0C60092FA21 /* UnitFeed.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UnitFeed.xib; sourceTree = "<group>"; };
 		7CF346F020A4D32D0092FA21 /* UnitTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitTableViewCell.swift; sourceTree = "<group>"; };
 		A09F5DB8D13EB8F6C1BA14D4 /* Pods_social_network.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_social_network.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -256,6 +260,8 @@
 			children = (
 				7CB50AF22074B160007759FE /* Conversation.xib */,
 				7CB50AF42074B16D007759FE /* ConversationCell.swift */,
+				7CEB3A6420C41A1E0023C630 /* Message.xib */,
+				7CEB3A6620C41AD90023C630 /* MessageCell.swift */,
 			);
 			path = cell;
 			sourceTree = "<group>";
@@ -358,6 +364,7 @@
 				7C150D502056D5CC00DF0E62 /* Assets.xcassets in Resources */,
 				7CB50AF72074D5D2007759FE /* SingUp.storyboard in Resources */,
 				7C150D612056DA4400DF0E62 /* Profile.storyboard in Resources */,
+				7CEB3A6520C41A1E0023C630 /* Message.xib in Resources */,
 				7C150D632056E06200DF0E62 /* Chat.storyboard in Resources */,
 				7C150D6D2056F09C00DF0E62 /* Notifications.xib in Resources */,
 				7C150D4E2056D5CC00DF0E62 /* Main.storyboard in Resources */,
@@ -435,6 +442,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7CACA9A620B954DA00EF118F /* PostViewController.swift in Sources */,
+				7CEB3A6720C41AD90023C630 /* MessageCell.swift in Sources */,
 				7C150D6B2056E8AC00DF0E62 /* NotificationsViewController.swift in Sources */,
 				7C9C7AA1208F65FB0020828F /* AInfoController.swift in Sources */,
 				7CCBA95C20B01840009808C4 /* FirebaseService.swift in Sources */,
