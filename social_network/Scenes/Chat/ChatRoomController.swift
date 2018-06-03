@@ -42,27 +42,53 @@ class ChatRoomController: UIViewController, UITableViewDelegate, UITableViewData
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.messageBoard.register(UITableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
+//        self.messageBoard.register(UITableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
+        setuoTableWiew()
         messageBoard.delegate = self
         messageBoard.dataSource = self
         
         loadData()
     }
+    func setuoTableWiew(){
+        let cellNib=UINib(nibName: "Message", bundle: Bundle.main) // nibName - имя файла
+        messageBoard.register(cellNib, forCellReuseIdentifier: "MessageCell")
+        
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return messageList.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: "test")
         
-        cell.textLabel?.text = messageList[indexPath.row].text
-        cell.detailTextLabel?.text = messageList[indexPath.row].owner
+        guard let cell = messageBoard.dequeueReusableCell(withIdentifier: "MessageCell", for: indexPath) as? MessageCell else {fatalError()}
+//        let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: "test")
+//        cell.textLabel?.text = messageList[indexPath.row].text
+//        cell.detailTextLabel?.text = messageList[indexPath.row].owner
+        cell.message?.text = messageList[indexPath.row].text
+        cell.ower?.text = messageList[indexPath.row].owner
+//        self.messageBoard.rowHeight = 100.0
+        
+        
+        let whiteRoundedView : UIView = UIView(frame: CGRect(x: 10, y: 8, width: self.view.frame.size.width - 20, height: 120))
+        
+        whiteRoundedView.layer.backgroundColor = CGColor(colorSpace: CGColorSpaceCreateDeviceRGB(), components: [0.57, 1.0, 0.50, 1])
+        whiteRoundedView.layer.masksToBounds = false
+        whiteRoundedView.layer.cornerRadius = 2.0
+        whiteRoundedView.layer.shadowOffset = CGSize(width: -1, height: 1)
+        whiteRoundedView.layer.shadowOpacity = 0.2
+        
+        cell.contentView.addSubview(whiteRoundedView)
+        cell.contentView.sendSubview(toBack: whiteRoundedView)
         return cell
+    }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("You tapped cell number \(indexPath.row).")
     }
-    
+   
     func loadData(){
         ref.child("chat").child(chatId).observeSingleEvent(of: .value, with: { (snapshot) in
             DispatchQueue.main.async {
@@ -104,8 +130,8 @@ class ChatRoomController: UIViewController, UITableViewDelegate, UITableViewData
         return true
     }
     ////////////////////////////////////////////
-    ///////////////////sendMessage/////////////////////////
     
+    ///////////////////sendMessage/////////////////////////
     @IBAction func sendMessage(_ sender: Any) {
         guard let userID = auth.currentUser?.uid,
             let message = textMessage.text,
