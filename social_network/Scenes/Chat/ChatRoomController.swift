@@ -69,10 +69,13 @@ class ChatRoomController: UIViewController, UITableViewDelegate, UITableViewData
         cell.ower?.text = messageList[indexPath.row].owner
 //        self.messageBoard.rowHeight = 100.0
         
-        
         let whiteRoundedView : UIView = UIView(frame: CGRect(x: 10, y: 8, width: self.view.frame.size.width - 20, height: 120))
-        
-        whiteRoundedView.layer.backgroundColor = CGColor(colorSpace: CGColorSpaceCreateDeviceRGB(), components: [0.57, 1.0, 0.50, 1])
+        if(cell.ower?.text == auth.currentUser?.uid){
+            whiteRoundedView.layer.backgroundColor = CGColor(colorSpace: CGColorSpaceCreateDeviceRGB(), components: [0.38, 1.0, 0.50, 1])
+        }else{
+             whiteRoundedView.layer.backgroundColor = CGColor(colorSpace: CGColorSpaceCreateDeviceRGB(), components: [0.57, 0.67, 0.20, 1])
+        }
+       
         whiteRoundedView.layer.masksToBounds = false
         whiteRoundedView.layer.cornerRadius = 2.0
         whiteRoundedView.layer.shadowOffset = CGSize(width: -1, height: 1)
